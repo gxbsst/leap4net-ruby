@@ -1,0 +1,140 @@
+@charset "UTF-8";
+*{margin:0;padding:0;}
+body {background:url(../en/bg.jpg) repeat-x left top #232323;}
+body {font-family: Arial, Helvetica, sans-serif;font-size:14px;color:#fff;}
+html {background-color:#000;}
+img {border:none;}
+ul, li {margin:0;pdding:0;list-style:none;}
+input, textarea, select {font-family: "Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif ;}
+.clearfix:after {clear: both;content: ".";display: block;height: 0;visibility: hidden;}
+.clearfix {display: inline-block;}
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+.clear {clear: both;font: 0pt/0 Arial;height: 0;visibility: hidden;}
+a {color: #00ccff;text-decoration:none;}
+a.hover {color:#00ccff;text-devoration:underline;}
+h1, h2, h3, h4 {margin:0;padding:0;}
+.prl15 {padding:0 15px;}
+.mb50 {margin-bottom:50px;}
+.mb30 { margin-bottom:30px;}
+.mb15 {margin-bottom:15px;}
+.mb10 {margin-bottom:10px;}
+.mt20 {margin-top:20px;}
+.mb5 {margin-bottom:5px;}
+.align-c {text-align:center;}
+.min-h-500 {min-height:500px;_height:500px;}
+input {height:30px;line-height:30px;padding:0 5px;}
+textarea {padding:10px;}
+button.btn_enter {width:123px;height:43px;background:url(../en/btn_enter.gif) no-repeat left top;border:none;display:block;}
+.float_r {float:right;}
+.red {color:#F00;}
+
+
+/*--------------common style----------------------*/
+#mainholder {width:960px;margin:0 auto;}
+.main_content {padding:40px 0;}
+
+/*-----------------login page------------------*/
+#wrapper_login {width:926px;margin:120px auto 0 auto;min-height:100%;}
+#login_mainholder .logo {margin-bottom:40px;}
+.box_welcome, .box_login {float:left;width:463px;height:408px;}
+.box_welcome {background:url(../en/login_bg_wel.jpg) no-repeat left top;}
+.box_login {background:url(../en/login_bg_login.jpg) no-repeat left top;width:}
+.box_login th, .box_login td {padding:0 20px 15px 0;}
+.box_login th {font-size:16px;text-align:right;}
+.box_welcome .content {margin:140px 50px 0 100px;}
+.box_login table {margin:140px 50px 0 50px;}
+
+/*-----------------header------------------*/
+#top {background-color:#272727;border-bottom:1px solid #424c4e;}
+#top .main {width:960px;margin:0 auto;line-height:40px;}
+#top .ip {width:300px;padding-top:3px;}
+#top .user {width:300px;float:right;}
+#top .user span.logout {display:block;float:right;margin:10px 0 10px 10px;}
+#top .user span.username {float:right;padding-top:2px;}
+.home #header {background:url(../en/bg_index.jpg) repeat-x left bottom;}
+.home #header .main {width:960px;margin:0 auto;}
+
+#header .logo { padding:25px 25px 25px 0px; }
+.version{ float: left; margin-left:5px;}
+.version a{ color:#ccc; line-height:44px;}
+.version a:hover{ color:#00ccff;}
+.current{ color:#00ccff;}
+
+.navi ul {background:url(../en/bg_navi.jpg) repeat-x left top;height:50px;line-height:50px;border-bottom:5px solid #00ccff;}
+.navi li {float:left;}
+.navi li.firstchild a {background:none;}
+.navi a {color:#fff;text-decoration:none;display:block;float:left;width:137px;height:50px;background:url(../en/navi_line.jpg) no-repeat left top;text-align:center;font-size:16px;}
+.navi a:hover {color:#fff;text-decoration:none;}
+
+/*-----------------footer------------------*/
+#footer {background-color:#000;height:100%;overflow:hidden;zoom:1;display:block;}
+#footer .main {width:960px;margin:0 auto;padding:30px 0;text-align:center;font-size:12px;color:#777;}
+#footer .main a {color:#777;}
+#footer .main a:hover {color:#777;text-decoration:underline;}
+
+/*-----------------index------------------*/
+.home .intro {background:url(../en/bg_index2.jpg) no-repeat right bottom;height:323px;}
+.home .intro .content {padding:50px 30px;0 0 20px;text-align:center;width:400px;font-size:20px;line-height:30px;}
+.home .intro .content  h1 {font-size:35px;margin-bottom:30px;}
+.location {background-color:#124571;}
+.location .main {width:960px;margin:0 auto;padding:15px 0;}
+.location .main img {margin-right:10px;}
+.location .main span {margin-right:20px;font-size:20px;line-height:35px;}
+
+/*-----------------order------------------*/
+.order_table {margin: 50px 0;}
+.order_left {width:242px;height:708px;float:left;background:url(../en/order_left.jpg) no-repeat left top;}
+.order_right {width:718px;height:708px;float:left;background:url(../en/order_right.jpg) no-repeat left top;}
+.order_left .main {padding:150px 0 0 50px;}
+.order_left h1 {font-size:18px;color:#99cff8;margin-bottom:25px;}
+.order_left  p {font-size:15px;color:#307ab2;margin-bottom:25px;}
+.m1, .m6, .m12 {float:left;}
+.m1 {width:240px;height:400px;background:url(../en/bg_order01_zh.jpg) no-repeat left top;}
+.m6 {width:220px;height:400px;background:url(../en/bg_order02_zh.jpg) no-repeat left top;}
+.m12 {width:258px;height:400px;background:url(../en/bg_order03_zh.jpg) no-repeat left top;}
+.m1 label {margin:335px 0 0 120px;display:inline-block;}
+.m6 label {margin:335px 0 0 100px;display:inline-block;}
+.m12 label {margin:335px 0 0 100px;display:inline-block;}
+.order_table .email {float:left;width:360px;font-size:16px;padding:0 0 0 40px;}
+.order_table .payment {float:left;width:318px;font-size:16px;}
+.order_table .email p, .order_table .payment p {margin:0 0 20px 0;}
+.order_table .payment label {display:inline-block;margin:0 20px 0 0;}
+.order_table .payment label input {margin: 0 10px 0 0;}
+.order_table .order_btn {float:left;width:163px;margin-right:30px;padding:0 0 0 40px;}
+.order_table .order_btn_info {float:left;font-size:15px;line-height:18px;padding-top:8px;}
+
+/*-----------------myorder------------------*/
+.myorder_table {background:url(../en/myorder_m.jpg) repeat-y left top;}
+.myorder_table .title {background:url(../en/myorder_title.jpg) no-repeat left  top;height:71px;line-height:71px;padding-right:50px;text-align:right;}
+.myorder_table .title span {background:url(../en/icon_cp.gif) no-repeat left 24px;padding-left:35px;display:inline-block;}
+.myorder_table .mid {padding:0 19px 0 18px;}
+.myorder_table dl {background:url(../en/bg_line.jpg) repeat-x left bottom;padding:25px 0;font-size:20px;}
+.myorder_table dt {width:260px;float:left;padding:0 0 0 200px;}
+.myorder_table dd {width:310px;float:left;padding:0 0 0 150px}
+.order_action {text-align:center;padding:30px 0;}
+.order_action img {margin-left:40px;}
+.order_action img.firstchild {margin-left:0;}
+.myorder_table .gic {padding:30px 50px;}
+.myorder_table .gic img, .myorder_table .gic input {margin-right:20px;}
+
+/*-----------------password------------------*/
+.chps {padding:30px 0 0 0;}
+.chps table {width:500px;margin:0 auto;}
+.chps td, .chps th {padding:10px;}
+.chps th {text-align:right;width:230px;font-size:16px;font-weight:normal;}
+
+/*-----------------refund------------------*/
+.refund {margin:0 auto;text-align:center;padding:30px 0 0 0;}
+.refund p {font-size:16px;padding:0 0 20px 0;}
+.refund textarea {width:480px;height:180px;}
+
+
+/*---------------text---------------*/
+.text h1 { display:block;font-size:24px;margin:0 0 30px 0;font-weight:normal;}
+.text h1.ht {margin-bottom:0px;}
+.text h3 {font-weight:normal;margin-bottom:20px; margin-top:5px;}
+.text dl {margin: 0 0 40px 0;}
+.text dl dt {font-size:18px;margin:0 0 20px 0;color:#66ccff;}
+.text dl dd {line-height:22px;color:#77a6be;}
+.text p {color:#77a6be; line-height:21px;}

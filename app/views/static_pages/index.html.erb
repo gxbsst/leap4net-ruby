@@ -1,0 +1,38 @@
+<div id="header">
+<div class="main">
+ 
+      <div class="logo"><a href="index.html">
+         <%= image_tag "#{I18n.locale}/logo.gif", :width => 346, :height => 40 %>
+      </a></div>
+  
+        <div class="navi">
+          <%= render "navigation" %>
+        </div>
+        <div class="intro">
+          <div class="content">
+              <h1>无限互联,网络世界</h1>
+              <p class="mb30">匿名网上冲浪 <br />
+                在公共场合防止隐私泄露<br />
+                做一切你想做的事
+                <br />
+                Youtube,Facebook,Twitter</p>
+                  <p><a href="order.html">
+                    <%= image_tag "#{I18n.locale}/btn_seeplan.gif", :width => 300, :height => 50 %>
+                  </a></p>
+            </div>
+      </div>
+  </div>
+</div>
+<div class="location">
+  <div class="main">
+      <p><span>您可以在这些国家使用我们的服务:</span>
+        <% flag_arr = ['f_ch.jpg', 'f_us.jpg', 'flag_finland.jpg', 'flag_hong_kong.jpg', 'flag_macau.jpg', 'f_jp.jpg', 'flag_australia.jpg', 'flag_bolivia.jpg', 'flag_south_korea.jpg', 'flag_sweden.jpg'] %>
+        <% flag_arr.each do |flag| %>
+          <%=image_tag "#{I18n.locale}/#{flag}", :width => 48, :height => 34, :align => "absmiddle" %>
+        <% end %>
+        </p>
+    </div>
+</div>
+<div id="mainholder">
+  <div style="height:300px;"></div>
+</div>

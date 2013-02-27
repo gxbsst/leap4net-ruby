@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Leap4Net</title>
+  <% if I18n.locale == :en %>
+    <%= stylesheet_link_tag    "en/application", :media => "all" %>
+  <% elsif I18n.locale == :zh %>
+    <%= stylesheet_link_tag    "zh/application", :media => "all" %>
+  <% end %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%='home' if request.path == '/' %>">
+<div id="wrapper">
+  <div id="top">
+    <div class="main">
+        <div class="user">
+          <span class="logout">
+            <a href="login.html">
+              <%= image_tag "#{I18n.locale}/btn_top_login.jpg", :width => 80, :height => 25, :alt => 'logout' %>
+            </a>
+          </span>
+          <span class="username">Hi, xiaoying</span>
+        </div>
+      <!--<div class="ip">YOUR IP:  <span class="red">199.68.199.136</span></div>-->
+      <div class="version"><span class="current">中文</span> ｜ <a href="../html_english/index.html">英文</a></div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <%= yield %>
+  <div id="footer">
+    <div class="main">
+      <p class="mb10">
+        <a href="index.html">首页</a> | <a href="why_vpn.html">什么是VPN</a> | <a href="faq.html">常见问题</a> | <a href="setup_howto.html">安装教程</a> | <a href="order.html">订购</a> | <a href="contactus.html">联系我们</a>
+      </p>
+      <p>Copyright © 2009 - 2012 Sidways InfoTech. All rights reserved.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
