@@ -10,6 +10,15 @@ Leap4Net::Application.routes.draw do
     end
   end
 
+  resources :payments do
+    collection do
+      get :pay
+      get :paypal
+      get :confirm
+      get :cancel
+    end
+  end
+
   root :to => 'static_pages#index'
 
   # This line mounts Refinery's routes at the root of your application.

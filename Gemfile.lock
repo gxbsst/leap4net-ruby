@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/Reprazent/ruby-paypal.git
+  revision: bde36806717b0156a70e30383eef8e7e922c1579
+  specs:
+    ruby-paypal (0.0.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -38,6 +44,7 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.7.0)
     builder (3.0.4)
+    china_pay (0.0.2)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -187,6 +194,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   better_errors (= 0.2.0)
+  china_pay
   coffee-rails (~> 3.2.1)
   jquery-rails (~> 2.0.0)
   mysql2
@@ -194,5 +202,6 @@ DEPENDENCIES
   rails (= 3.2.5)
   refinerycms (~> 2.0.0)
   refinerycms-i18n (~> 2.0.0)
+  ruby-paypal!
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
