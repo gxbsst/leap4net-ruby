@@ -10,7 +10,25 @@ Leap4Net::Application.routes.draw do
     end
   end
 
+  resources :sessions do
+    collection do
+      post 'guest_login'
+    end
+  end
+
+  resources :users do
+    collection do
+      post 'reset_password'
+      post 'build_invitation_code'
+    end
+
+    member do
+      get 'change_password'
+    end
+  end
+
   root :to => 'static_pages#index'
+  match '/login' => 'sessions#new'
 
   # This line mounts Refinery's routes at the root of your application.
   # This means, any requests to the root URL of your application will go to Refinery::PagesController#home.

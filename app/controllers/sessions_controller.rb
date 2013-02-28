@@ -1,22 +1,57 @@
+#encoding: utf-8
 class SessionsController < ApplicationController
-
+  layout false
+  before_filter :check_invitation_code, :only => :guest_login
+  before_filter :check_email_and_password, :only => :create
   #guest 和付费用户登录
   def new
-
+  end
+  
+  #邀请码登录
+  def guest_login
+    user = User.find_by_invitation_code(params[:invitation_code])
+    if user && user.within_deadline?
+      session[:user_id] = user.id
+      notice_stickie "登录成功。"
+      redirect_to root_url
+    else
+      warning_stickie "无效邀请码或者邀请码已过期！"
+      render :new
+    end
   end
 
+  #已购买用户登录
   def create
-    if params[:invitation_code] #guest
-      user = User.find_by_invitation_code(params[:invitation_code])
-    else
-      user = User.find_by_email(params[:user][:email])
-    end
+    user = User.find_by_email(params[:user][:email])
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
-      redirect_to root_url,  :notice => "登录成功。"
+      notice_stickie "登录成功。"
+      redirect_to root_url
     else
-      flash.now.alert = "无效的邮箱或验证码"
-      render "new"
+      error_stickie '邮箱或密码错误！'
+      render :new
+    end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    notice_stickie "成功退出登录。"
+    redirect_to login_path
+  end
+
+  private
+
+  def check_invitation_code
+    if params[:invitation_code].blank?
+      warning_stickie '请填写邀请码！'
+      render :new
+    end
+  end
+
+  def check_email_and_password
+    if params[:user][:email].blank? || params[:user][:password].blank?
+      warning_stickie "请填写邮箱或密码！"
+      render :new
     end
   end
 end

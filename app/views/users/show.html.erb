@@ -1,0 +1,88 @@
+<div id="mainholder">
+    <div id="header">
+        <div class="main">                
+      <div class="logo">
+        <a href="index.html">
+          <%= image_tag "#{I18n.locale}/logo.gif", :width => 346, :height => 40 %>
+        </a>
+      </div>
+   
+        <div class="navi">
+          <%= render "static_pages/navigation" %>
+        </div>
+      </div>
+    </div>
+    <div class="main_content">
+      <div class="myorder_table">
+          <div class="title">
+            <span>
+              <%= link_to '更改密码', change_password_user_path(current_user) %>
+            </span>
+          </div>
+            <div class="mid">
+<dl class="clearfix">
+                  <dt>产品</dt>
+                    <dd><%= @order.leap_type %></dd>
+                </dl>
+<dl class="clearfix">
+                  <dt><span id="result_box2" lang="zh-CN" xml:lang="zh-CN">产品状态</span></dt>
+                    <dd><%= @order.status %></dd>
+                </dl>
+                <dl class="clearfix">
+                  <dt><span id="result_box3" lang="zh-CN" xml:lang="zh-CN">发票日期</span></dt>
+                    <dd><%= @order.buy_date.strftime("%Y-%m-%d") %></dd>
+                </dl>
+                <dl class="clearfix">
+                  <dt>截至日期</dt>
+                    <dd><%= @order.deadline.strftime("%Y-%m-%d") %></dd>
+                </dl>
+                <div class="order_action">
+                  <a href="#">
+                    <%= image_tag "#{I18n.locale}/btn_renew.gif", 
+                                    :alt => 'Renew', 
+                                    :width => '144', 
+                                    :height => '44',
+                                    :id => "firstchild" %>
+                  </a>
+                  <a href="#">
+                    <%= image_tag "#{I18n.locale}/btn_payment.gif", 
+                      :alt => 'Renew', 
+                      :width => '144', 
+                      :height => '44' %>
+                  </a>
+                </div>
+            </div>
+            <div class="bot">
+              <%= image_tag "#{I18n.locale}/myorder_b.jpg", :width => '960', :height => '36' %>
+            </div>
+        </div>
+        <div class="myorder_table">
+          <div class="top">
+            <%= image_tag "#{I18n.locale}/myorder_t.jpg", :width => '960', :height => '25' %>
+          </div>
+            <div class="mid">
+              <div class="gic">
+                <%= form_tag build_invitation_code_users_path, :remote => true do %>
+                  <a href="#" id="build_invitation_code">
+                    <%= image_tag "#{I18n.locale}/btn_gic.gif", 
+                                :width => '293',
+                                :height => '43',
+                                :align => 'absmiddle',
+                                :alt => "Generate Invitation Code" %>
+                  </a>
+                  <input name="invitation_code" type="text" />
+                  <span>文本信息</span></div>
+                <% end %>
+            </div>
+            <div class="bot">
+              <%= image_tag "#{I18n.locale}/myorder_b.jpg", :width => '960', :height => '36' %>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  $("#build_invitation_code").click(function(){
+    $(this).parents('form').submit();
+    return false;
+  });
+</script>

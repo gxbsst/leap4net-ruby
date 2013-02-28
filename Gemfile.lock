@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/techbang/stickies.git
+  revision: 5b18fae852f723befcc0b12a52ae3960a2721c00
+  specs:
+    stickies (0.1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -37,6 +43,8 @@ GEM
     better_errors (0.2.0)
       coderay (>= 1.0.0)
       erubis (>= 2.7.0)
+    binding_of_caller (0.7.1)
+      debug_inspector (>= 0.0.1)
     builder (3.0.4)
     coderay (1.0.9)
     coffee-rails (3.2.2)
@@ -46,6 +54,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
+    debug_inspector (0.0.2)
     devise (2.0.5)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -187,6 +196,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   better_errors (= 0.2.0)
+  binding_of_caller
   coffee-rails (~> 3.2.1)
   jquery-rails (~> 2.0.0)
   mysql2
@@ -195,4 +205,5 @@ DEPENDENCIES
   refinerycms (~> 2.0.0)
   refinerycms-i18n (~> 2.0.0)
   sass-rails (~> 3.2.3)
+  stickies!
   uglifier (>= 1.0.3)
