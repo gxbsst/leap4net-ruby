@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226094900) do
+ActiveRecord::Schema.define(:version => 20130228035126) do
+
+  create_table "orders", :force => true do |t|
+    t.string   "leap_type",  :limit => 0
+    t.string   "status",     :limit => 0
+    t.decimal  "pay_price",               :precision => 10, :scale => 0
+    t.datetime "buy_date"
+    t.datetime "deadline"
+    t.integer  "user_id"
+    t.datetime "created_at",                                             :null => false
+    t.datetime "updated_at",                                             :null => false
+  end
 
   create_table "refinery_images", :force => true do |t|
     t.string   "image_mime_type"
@@ -152,12 +163,15 @@ ActiveRecord::Schema.define(:version => 20130226094900) do
   create_table "users", :force => true do |t|
     t.string   "name",               :limit => 11
     t.string   "user_type",          :limit => 0,  :default => "Guest", :null => false
-    t.string   "password_digest",    :limit => 11
+    t.string   "password_digest"
     t.datetime "created_at",                                            :null => false
     t.datetime "updated_at",                                            :null => false
     t.string   "email"
     t.string   "cleartext_password"
     t.string   "invitation_code"
+    t.datetime "begin_date"
+    t.datetime "deadline"
+    t.integer  "builder_id"
   end
 
 end

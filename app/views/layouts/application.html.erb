@@ -17,17 +17,18 @@
     <div class="main">
         <div class="user">
           <span class="logout">
-            <a href="login.html">
+            <%= link_to session_path(current_user), :method => :delete do %>
               <%= image_tag "#{I18n.locale}/btn_top_login.jpg", :width => 80, :height => 25, :alt => 'logout' %>
-            </a>
+           <% end %>
           </span>
-          <span class="username">Hi, xiaoying</span>
+          <span class="username">Hi, <%= current_user.nick_name %></span>
         </div>
       <!--<div class="ip">YOUR IP:  <span class="red">199.68.199.136</span></div>-->
       <div class="version"><span class="current">中文</span> ｜ <a href="../html_english/index.html">英文</a></div>
       <div class="clear"></div>
     </div>
   </div>
+  <%= render_stickies(:close => "") %>
   <%= yield %>
   <div id="footer">
     <div class="main">

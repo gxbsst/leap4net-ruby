@@ -138,3 +138,8 @@ button.btn_enter {width:123px;height:43px;background:url(../zh/btn_enter.gif) no
 .text dl dt {font-size:18px;margin:0 0 20px 0;color:#66ccff;}
 .text dl dd {line-height:22px;color:#77a6be;}
 .text p {color:#77a6be; line-height:21px;}
+
+/*---------------stickies------------*/
+#stickies .notice_stickie{color:#399c07;}
+#stickies .error_stickie{color:#cc2f00;}
+#stickies .warning_stickie{color:#ff7700;}

@@ -28,11 +28,14 @@ group :development do
   gem "better_errors", '0.2.0'
 end
 
+gem "stickies", :git => "git://github.com/techbang/stickies.git"
+
 gem 'jquery-rails', '~> 2.0.0'
-gem 'bcrypt-ruby', '~> 3.0.0'
+
+gem 'binding_of_caller'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

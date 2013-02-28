@@ -1,5 +1,5 @@
-
 class StaticPagesController < ApplicationController
+  before_filter :authenticate_user
   def why_vpn
   end
 
@@ -16,6 +16,5 @@ class StaticPagesController < ApplicationController
   end
 
   def faq
-    ::I18n.locale = 'zh'
   end
 end

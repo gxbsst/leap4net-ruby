@@ -3,6 +3,10 @@ GIT
   revision: bde36806717b0156a70e30383eef8e7e922c1579
   specs:
     ruby-paypal (0.0.7)
+  remote: git://github.com/techbang/stickies.git
+  revision: 5b18fae852f723befcc0b12a52ae3960a2721c00
+  specs:
+    stickies (0.1.4)
 
 GEM
   remote: https://rubygems.org/
@@ -43,6 +47,8 @@ GEM
     better_errors (0.2.0)
       coderay (>= 1.0.0)
       erubis (>= 2.7.0)
+    binding_of_caller (0.7.1)
+      debug_inspector (>= 0.0.1)
     builder (3.0.4)
     china_pay (0.0.2)
     coderay (1.0.9)
@@ -53,6 +59,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
+    debug_inspector (0.0.2)
     devise (2.0.5)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -194,7 +201,11 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   better_errors (= 0.2.0)
+<<<<<<< HEAD
   china_pay
+=======
+  binding_of_caller
+>>>>>>> feature/user_authentication
   coffee-rails (~> 3.2.1)
   jquery-rails (~> 2.0.0)
   mysql2
@@ -204,4 +215,5 @@ DEPENDENCIES
   refinerycms-i18n (~> 2.0.0)
   ruby-paypal!
   sass-rails (~> 3.2.3)
+  stickies!
   uglifier (>= 1.0.3)
