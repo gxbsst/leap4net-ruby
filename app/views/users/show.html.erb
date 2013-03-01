@@ -7,24 +7,24 @@
       <div class="myorder_table">
           <div class="title">
             <span>
-              <%= link_to '更改密码', change_password_user_path(current_user) %>
+              <%= link_to t('profile.change_password'), change_password_user_path(current_user) %>
             </span>
           </div>
             <div class="mid">
 <dl class="clearfix">
-                  <dt>产品</dt>
+                  <dt><%= t("profile.product") %></dt>
                     <dd><%= @order.leap_type %></dd>
                 </dl>
 <dl class="clearfix">
-                  <dt><span id="result_box2" lang="zh-CN" xml:lang="zh-CN">产品状态</span></dt>
+                  <dt><span id="result_box2" lang="zh-CN" xml:lang="zh-CN"><%= t("profile.product_status") %></span></dt>
                     <dd><%= @order.status %></dd>
                 </dl>
                 <dl class="clearfix">
-                  <dt><span id="result_box3" lang="zh-CN" xml:lang="zh-CN">发票日期</span></dt>
+                  <dt><span id="result_box3" lang="zh-CN" xml:lang="zh-CN"><%= t("profile.invoice_date") %></span></dt>
                     <dd><%= @order.buy_date.strftime("%Y-%m-%d") %></dd>
                 </dl>
                 <dl class="clearfix">
-                  <dt>截至日期</dt>
+                  <dt><%= t("profile.due_date") %></dt>
                     <dd><%= @order.deadline.strftime("%Y-%m-%d") %></dd>
                 </dl>
                 <div class="order_action">
@@ -62,7 +62,7 @@
                                 :alt => "Generate Invitation Code" %>
                   </a>
                   <input name="invitation_code" type="text" />
-                  <span>文本信息</span></div>
+                  <span><%= t("profile.information_text") %></span></div>
                 <% end %>
             </div>
             <div class="bot">

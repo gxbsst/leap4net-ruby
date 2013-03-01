@@ -5,7 +5,7 @@ body {font-family: Arial, Helvetica, sans-serif;font-size:14px;color:#fff;}
 html {background-color:#000;}
 img {border:none;}
 ul, li {margin:0;pdding:0;list-style:none;}
-input, textarea, select {font-family: "Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif ;}
+input, textarea, select {font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#333333;l}
 .clearfix:after {clear: both;content: ".";display: block;height: 0;visibility: hidden;}
 .clearfix {display: inline-block;}
 * html .clearfix {height: 1%;}
@@ -35,7 +35,7 @@ button.btn_enter {width:123px;height:43px;background:url(../en/btn_enter.gif) no
 .main_content {padding:40px 0;}
 
 /*-----------------login page------------------*/
-#wrapper_login {width:926px;margin:120px auto 0 auto;min-height:100%;}
+#wrapper_login {width:926px;margin:150px auto 0 auto;min-height:100%;}
 #login_mainholder .logo {margin-bottom:40px;}
 .box_welcome, .box_login {float:left;width:463px;height:408px;}
 .box_welcome {background:url(../en/login_bg_wel.jpg) no-repeat left top;}
@@ -54,12 +54,12 @@ button.btn_enter {width:123px;height:43px;background:url(../en/btn_enter.gif) no
 #top .user span.username {float:right;padding-top:2px;}
 .home #header {background:url(../en/bg_index.jpg) repeat-x left bottom;}
 .home #header .main {width:960px;margin:0 auto;}
-
-#header .logo { padding:25px 25px 25px 0px; }
+#header .logo {padding:25px 0;}
 .version{ float: left; margin-left:5px;}
 .version a{ color:#ccc; line-height:44px;}
 .version a:hover{ color:#00ccff;}
 .current{ color:#00ccff;}
+
 
 .navi ul {background:url(../en/bg_navi.jpg) repeat-x left top;height:50px;line-height:50px;border-bottom:5px solid #00ccff;}
 .navi li {float:left;}
@@ -90,9 +90,9 @@ button.btn_enter {width:123px;height:43px;background:url(../en/btn_enter.gif) no
 .order_left h1 {font-size:18px;color:#99cff8;margin-bottom:25px;}
 .order_left  p {font-size:15px;color:#307ab2;margin-bottom:25px;}
 .m1, .m6, .m12 {float:left;}
-.m1 {width:240px;height:400px;background:url(../en/bg_order01_zh.jpg) no-repeat left top;}
-.m6 {width:220px;height:400px;background:url(../en/bg_order02_zh.jpg) no-repeat left top;}
-.m12 {width:258px;height:400px;background:url(../en/bg_order03_zh.jpg) no-repeat left top;}
+.m1 {width:240px;height:400px;background:url(../en/bg_order_1m.jpg) no-repeat left top;}
+.m6 {width:220px;height:400px;background:url(../en/bg_order_6m.jpg) no-repeat left top;}
+.m12 {width:258px;height:400px;background:url(../en/bg_order_12m.jpg) no-repeat left top;}
 .m1 label {margin:335px 0 0 120px;display:inline-block;}
 .m6 label {margin:335px 0 0 100px;display:inline-block;}
 .m12 label {margin:335px 0 0 100px;display:inline-block;}
@@ -131,13 +131,13 @@ button.btn_enter {width:123px;height:43px;background:url(../en/btn_enter.gif) no
 
 
 /*---------------text---------------*/
-.text h1 { display:block;font-size:24px;margin:0 0 30px 0;font-weight:normal;}
+.text h1 {font-size:24px;margin:0 0 30px 0;font-weight:normal;}
 .text h1.ht {margin-bottom:0px;}
-.text h3 {font-weight:normal;margin-bottom:20px; margin-top:5px;}
+.text h3 {font-weight:normal;margin-bottom:30px;}
 .text dl {margin: 0 0 40px 0;}
 .text dl dt {font-size:18px;margin:0 0 20px 0;color:#66ccff;}
 .text dl dd {line-height:22px;color:#77a6be;}
-.text p {color:#77a6be; line-height:21px;}
+.text p {color:#77a6be;}
 
 /*---------------stickies------------*/
 #stickies .notice_stickie{color:#399c07;}

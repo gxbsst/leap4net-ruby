@@ -9,8 +9,8 @@
       <%= link_to t("navigation.index"), root_url %></li>
       <li><%= link_to t("navigation.vpn"), why_vpn_static_pages_url %></li>
       <li><%= link_to t("navigation.set_up"), howto_static_pages_path %></li>
-      <li><%= link_to "FAQ", faq_static_pages_path %></li>
-      <li><a href="order.html"><%= t("navigation.order")%></a></li>
+      <li><%= link_to t("navigation.faq"), faq_static_pages_path %></li>
+      <li><%= link_to t("navigation.order"), new_order_path %></li>
       <li><%= link_to t("navigation.contact"), contactus_static_pages_path %></li>
       <% if current_user.is_common? %>
         <li>

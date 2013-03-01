@@ -18,11 +18,27 @@ zh:
     order: '购买套餐'
     account: '我的账户'
     contact: '联系我们'
+    faq: '常见问题'
   index_page:
     info: "<h1>无限互联,网络世界</h1><p class='mb30'>匿名网上冲浪 <br />在公共场合防止隐私泄露<br /> 做一切你想做的事<br />Youtube,Facebook,Twitter</p>"
     location: "您可以在这些国家使用我们的服务："
   setup_howto:
     manual: "Leap4.Net 配置手册"
-    download_manual: "请按您使用的操作系统下载配置手册。"
-
-
+    download_manual: "请按您使用的操作系统下载配置手册。" 
+  profile:
+    change_password: '更改密码'
+    product: '产品'
+    product_status: '产品状态'
+    invoice_date: '发票日期'
+    due_date: '截至日期'
+    information_text: "文本信息"
+  order:
+    info: |
+      <h1>简单的设置就能让您畅游网络,不再被束缚.</h1>
+      <p>今天就让我们为无限畅游网络欢呼吧!</p>
+      <p>如果您是年付用户,可以享受30天内无条件退款.</p>
+      <p>隐私保密.我们不会将您的个人信息公开,并且只会在向您提供我们的服务时联系您.</p>
+    email_address: "请输入您的Email地址："
+    choose_payment: "请选择付费方式："
+    payment_info: " *一旦您点击&quot;立即定购&quot;按钮并且完成了支付.<br /> 您将收到一份包含您用户名和密码的邮件. "
+    alt_order: '立刻下单'

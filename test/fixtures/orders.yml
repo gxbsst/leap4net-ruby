@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  status: 
+  pay_price: 9.99
+  buy_date: 2013-02-27 16:39:24
+  deadline: 2013-02-27 16:39:24
+  user_id: 1
+
+two:
+  type: 
+  status: 
+  pay_price: 9.99
+  buy_date: 2013-02-27 16:39:24
+  deadline: 2013-02-27 16:39:24
+  user_id: 1

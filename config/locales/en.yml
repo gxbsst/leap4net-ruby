@@ -21,9 +21,11 @@ en:
     order: 'Order'
     account: 'Account'
     contact: 'Contact Us'
+    faq: 'FAQ'
   index_page:
-    info: "<h1>FREE YOUR INTERNET</h1><p class='mb30'>Access blocked sites anytime, anywhere!\
-          <br />Speed Optimized Global VPN Network<br />Super-simple setup within a few minutes</p>"
+    info: |
+      <h1>FREE YOUR INTERNET</h1><p class='mb30'>Access blocked sites anytime, anywhere! 
+      <br />Speed Optimized Global VPN Network<br />Super-simple setup within a few minutes</p>
     location: "ACCESS TO ALL OUR SERVERS:"
   setup_howto:
     manual: 'Leap4.Net Manual'
@@ -32,5 +34,23 @@ en:
     change_password: 'Change Password'
     product: 'Products'
     product_status: 'Products Status'
-    
+    invoice_date: 'Invoice Date'
+    due_date: 'Due Date'
+    information_text: 'information text'
+  order:
+    info: |
+      <h1>Your online freedom and security are just seconds away.</h1>
+      <p>Enjoy unrestricted Internet with 100% anonymity today!</p>
+      <p>All plans offer full access to our global network of VPN servers
+      and our iron-clad 30 day money back guarantee.</p>
+      <p>Privacy Guarantee. We do not share any of your information and
+      will contact you only as needed to provide our service.</p>
+    email_address: "Enter your email address:"
+    choose_payment: "Choose a payment method:"
+    payment_info: |
+      Once you select the "Order Now" button and finished payment, <br />
+      you will revice the username and password in your email inbox.
+    alt_order: 'Order Now'
+
+
 

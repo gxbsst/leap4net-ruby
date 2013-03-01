@@ -1,46 +1,49 @@
  <div id="mainholder">
-            <div id="header">
-                <div class="main">
-                   <%= render "navigation" %>
-              </div>
-            </div>
-            <div class="order_table">
-              <div class="order_left">
-                  <div class="main">
-                        <h1>Your online freedom and security are just seconds away.</h1>
-                        <p>Enjoy unrestricted Internet with 100% anonymity today!</p>
-                        <p>All plans offer full access to our global network of VPN servers and our iron-clad 30 day money back guarantee.</p>
-                        <p>Privacy Guarantee. We do not share any of your information and will contact you only as needed to provide our service.</p>
-                    </div>
-                </div>
-                <div class="order_right">
-                  <div class="main">
-                      <div class="m1"><label><input type="radio" name="month" /></label></div>
-                        <div class="m6">
-                          <label><input type="radio" name="month" checked="checked" /></label></div>
-                        <div class="m12"><label><input name="month" type="radio" /></label></div>
-                        <div class="clear"></div>
-                        <div class="order_info">
-                          <div class="email">
-                              <p>Enter your email address:</p>
-                              <p><input name="" type="text" style="width:300px;"/></p>
-                            </div>
-                            <div class="aa">dfsfd</div>
-                          <div class="payment">
-                            <p>Choose a payment method:</p>
-                              <p><label><input name="payment" type="radio" value="" />
-                              <img src="images/paypal.gif" width="51" height="32" alt="Paypal" /></label>
-                              <label><input name="payment" type="radio" value="" />
-                              <img src="images/zhifubao.gif" width="51" height="32" /></label></p>
-                            </div>
-                            <div class="clear"></div>
-                            <div class="order_btn"><a href="#"><img src="images/btn_order.gif" alt="Order Now" width="163" height="58" /></a></div>
-                            <div class="order_btn_info">*Once you select the "Order Now" button and finished payment, <br />
-                            you will revice the username and password in your email inbox.</div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clear"></div>
+    <div id="header">
+        <div class="main">
+           <%= render "static_pages/navigation" %>
+      </div>
+    </div>
+    <div class="order_table">
+      <div class="order_left">
+          <div class="main">
+                <%=raw t("order.info") %>
             </div>
         </div>
+        <div class="order_right">
+          <div class="main">
+              <div class="m1"><label><input type="radio" name="month" /></label></div>
+                <div class="m6">
+                  <label><input type="radio" name="month" checked="checked" /></label></div>
+                <div class="m12"><label><input name="month" type="radio" /></label></div>
+                <div class="clear"></div>
+                <div class="order_info">
+                  <div class="email">
+                      <p><%=raw t("order.email_address") %></p>
+                      <p><input name="" type="text" style="width:300px;"/></p>
+                    </div>
+                  <div class="payment">
+                    <p><%= t("order.choose_payment") %></p>
+                      <p><label><input name="payment" type="radio" value="" />
+                      <%= image_tag("#{I18n.locale}/paypal.gif", :width => 51, :height => 32, :alt => 'Paypal') %>
+                      </label>
+                      <label><input name="payment" type="radio" value="" />
+                      <%= image_tag("#{I18n.locale}/zhifubao.gif", :width => 51, :height => 32) %>
+                      </label></p>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="order_btn">
+                      <a href="#">
+                        <%= image_tag "#{I18n.locale}/btn_order.gif", 
+                          :width => 163, :height => 58, :alt => t('order.alt_order') %>
+                      </a></div>
+                    <div class="order_btn_info">
+                      <%=raw t("order.payment_info") %>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

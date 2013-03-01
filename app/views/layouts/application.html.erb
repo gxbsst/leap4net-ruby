@@ -31,7 +31,7 @@
   <div id="footer">
     <div class="main">
       <p class="mb10">
-        <a href="index.html">首页</a> | <a href="why_vpn.html">什么是VPN</a> | <a href="faq.html">常见问题</a> | <a href="setup_howto.html">安装教程</a> | <a href="order.html">订购</a> | <a href="contactus.html">联系我们</a>
+        <%= link_to t("navigation.index"), root_url %> | <%= link_to t("navigation.vpn"), why_vpn_static_pages_url %> | <%= link_to t("navigation.faq"), faq_static_pages_path %> | <%= link_to t("navigation.set_up"), howto_static_pages_path %> | <%= link_to t("navigation.order"), new_order_path %> | <%= link_to t("navigation.contact"), contactus_static_pages_path %>
       </p>
       <p>Copyright © 2009 - 2012 Sidways InfoTech. All rights reserved.</p>
     </div>
