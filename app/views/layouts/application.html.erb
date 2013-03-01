@@ -3,11 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Leap4Net</title>
-  <% if I18n.locale == :en %>
-    <%= stylesheet_link_tag    "en/application", :media => "all" %>
-  <% elsif I18n.locale == :zh %>
-    <%= stylesheet_link_tag    "zh/application", :media => "all" %>
-  <% end %>
+    <%= stylesheet_link_tag    "#{I18n.locale}/application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
