@@ -1,0 +1,31 @@
+fr:
+  refinery:
+    plugins:
+      saleoff_codes:
+        title: Saleoff Codes
+    saleoff_codes:
+      admin:
+        saleoff_codes:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Saleoff Code
+            reorder: Réordonner les Saleoff Codes
+            reorder_done: Fin de réordonnancement des Saleoff Codes
+          records:
+            title: Saleoff Codes
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Saleoff Code. Cliquer sur "Créer un(e) nouve(au/l/lle) Saleoff Code" pour créer votre premi(er/ère) saleoff code.'
+          saleoff_code:
+            view_live_html: Voir ce(t/tte) saleoff code <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) saleoff code
+            delete: Supprimer définitivement ce(t/tte) saleoff code
+      saleoff_codes:
+        show:
+          other: Autres Saleoff Codes
+  activerecord:
+    attributes:
+      'refinery/saleoff_codes/saleoff_code':
+        begin_at: Begin At
+        end_at: End At
+        code: Code
+        percent: Percent
+        user_id: User

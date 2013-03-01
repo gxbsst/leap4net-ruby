@@ -1,0 +1,51 @@
+<% content_for :body_content_title do %>
+  <%= @invication_code.code %>
+<% end %>
+
+<% content_for :body do %>
+  <section>
+    <h1>Begin At</h1>
+    <p>
+      <%=raw @invication_code.begin_at %>
+    </p>
+  </section>
+  <section>
+    <h1>End At</h1>
+    <p>
+      <%=raw @invication_code.end_at %>
+    </p>
+  </section>
+  <section>
+    <h1>Code</h1>
+    <p>
+      <%=raw @invication_code.code %>
+    </p>
+  </section>
+  <section>
+    <h1>User Type</h1>
+    <p>
+      <%=raw @invication_code.user_type %>
+    </p>
+  </section>
+  <section>
+    <h1>User</h1>
+    <p>
+      <%=raw @invication_code.user_id %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :side_body do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="invication_codes">
+      <% @invication_codes.each do |invication_code| %>
+        <li>
+          <%= link_to invication_code.code, refinery.invication_codes_invication_code_path(invication_code) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>

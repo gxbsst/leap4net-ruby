@@ -1,0 +1,25 @@
+<ul>
+  <% if ::Refinery::InvicationCodes::Admin::InvicationCodesController.searchable? %>
+    <li>
+      <%= render '/refinery/admin/search', :url => refinery.invication_codes_admin_invication_codes_path %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), refinery.new_invication_codes_admin_invication_code_path,
+                 :class => "add_icon" %>
+  </li>
+<% if !searching? && ::Refinery::InvicationCodes::Admin::InvicationCodesController.sortable? && ::Refinery::InvicationCodes::InvicationCode.any? %>
+  <li>
+    <%= link_to t('.reorder', :what => "Invication Codes"),
+                 refinery.invication_codes_admin_invication_codes_path,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Invication Codes"),
+                 refinery.invication_codes_admin_invication_codes_path,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>

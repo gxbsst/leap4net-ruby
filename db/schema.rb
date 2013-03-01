@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228035126) do
+ActiveRecord::Schema.define(:version => 20130301022610) do
 
   create_table "orders", :force => true do |t|
     t.string   "leap_type",  :limit => 0
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(:version => 20130228035126) do
     t.string   "image_ext"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "refinery_invication_codes", :force => true do |t|
+    t.datetime "begin_at"
+    t.datetime "end_at"
+    t.string   "code"
+    t.string   "user_type"
+    t.integer  "user_id"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "refinery_page_part_translations", :force => true do |t|
@@ -119,6 +130,17 @@ ActiveRecord::Schema.define(:version => 20130228035126) do
 
   add_index "refinery_roles_users", ["role_id", "user_id"], :name => "index_refinery_roles_users_on_role_id_and_user_id"
   add_index "refinery_roles_users", ["user_id", "role_id"], :name => "index_refinery_roles_users_on_user_id_and_role_id"
+
+  create_table "refinery_saleoff_codes", :force => true do |t|
+    t.datetime "begin_at"
+    t.datetime "end_at"
+    t.string   "code"
+    t.float    "percent"
+    t.integer  "user_id"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "refinery_user_plugins", :force => true do |t|
     t.integer "user_id"

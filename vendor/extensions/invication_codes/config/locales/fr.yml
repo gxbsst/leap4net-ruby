@@ -1,0 +1,31 @@
+fr:
+  refinery:
+    plugins:
+      invication_codes:
+        title: Invication Codes
+    invication_codes:
+      admin:
+        invication_codes:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Invication Code
+            reorder: Réordonner les Invication Codes
+            reorder_done: Fin de réordonnancement des Invication Codes
+          records:
+            title: Invication Codes
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Invication Code. Cliquer sur "Créer un(e) nouve(au/l/lle) Invication Code" pour créer votre premi(er/ère) invication code.'
+          invication_code:
+            view_live_html: Voir ce(t/tte) invication code <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) invication code
+            delete: Supprimer définitivement ce(t/tte) invication code
+      invication_codes:
+        show:
+          other: Autres Invication Codes
+  activerecord:
+    attributes:
+      'refinery/invication_codes/invication_code':
+        begin_at: Begin At
+        end_at: End At
+        code: Code
+        user_type: User Type
+        user_id: User

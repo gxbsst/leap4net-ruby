@@ -1,0 +1,32 @@
+es:
+  refinery:
+    plugins:
+      saleoff_codes:
+        title: Saleoff Codes
+#        article: masculino/femenino
+    saleoff_codes:
+      admin:
+        saleoff_codes:
+          actions:
+            create_new: Crear nuevo saleoff code
+            reorder: Reordenar saleoff codes
+            reorder_done: Reordenación de saleoff codes completada
+          records:
+            title: Saleoff Codes
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay saleoff codes todavía. Pulsa en "Crear nuevo Saleoff Code" para crear tu primer saleoff code.
+          saleoff_code:
+            view_live_html: Ver este saleoff code como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este saleoff code
+            delete: Borrar este saleoff code para siempre
+      saleoff_codes:
+        show:
+          other: Otros saleoff codes
+  activerecord:
+    attributes:
+      'refinery/saleoff_codes/saleoff_code':
+        begin_at: Begin At
+        end_at: End At
+        code: Code
+        percent: Percent
+        user_id: User

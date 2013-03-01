@@ -1,0 +1,41 @@
+<%= form_for [refinery, :saleoff_codes_admin, @saleoff_code] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @saleoff_code,
+              :include_object_name => true %>
+
+  
+  <div class='field'>
+    <%= f.label :begin_at -%>
+    <%= f.datetime_select :begin_at  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :end_at -%>
+    <%= f.datetime_select :end_at  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :code -%>
+    <%= f.text_field :code  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :percent -%>
+    <%= f.text_field :percent  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :user_id -%>
+    <%= f.number_field :user_id  -%>
+
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.saleoff_codes.admin.saleoff_codes.saleoff_code'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @saleoff_code.code) %>
+<% end -%>

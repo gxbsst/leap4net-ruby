@@ -1,0 +1,31 @@
+nb:
+  refinery:
+    plugins:
+      invication_codes:
+        title: Invication Codes
+    invication_codes:
+      admin:
+        invication_codes:
+          actions:
+            create_new: Lag en ny Invication Code
+            reorder: Endre rekkefølgen på Invication Codes
+            reorder_done: Ferdig å endre rekkefølgen Invication Codes
+          records:
+            title: Invication Codes
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Invication Codes enda. Klikk på "Lag en ny Invication Code" for å legge til din første invication code.
+          invication_code:
+            view_live_html: Vis hvordan denne invication code ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne invication code
+            delete: Fjern denne invication code permanent
+      invication_codes:
+        show:
+          other: Andre Invication Codes
+  activerecord:
+    attributes:
+      'refinery/invication_codes/invication_code':
+        begin_at: Begin At
+        end_at: End At
+        code: Code
+        user_type: User Type
+        user_id: User
