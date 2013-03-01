@@ -1,0 +1,31 @@
+en:
+  refinery:
+    plugins:
+      saleoff_codes:
+        title: Saleoff Codes
+    saleoff_codes:
+      admin:
+        saleoff_codes:
+          actions:
+            create_new: Add New Saleoff Code
+            reorder: Reorder Saleoff Codes
+            reorder_done: Done Reordering Saleoff Codes
+          records:
+            title: Saleoff Codes
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Saleoff Codes yet. Click "Add New Saleoff Code" to add your first saleoff code.
+          saleoff_code:
+            view_live_html: View this saleoff code live <br/><em>(opens in a new window)</em>
+            edit: Edit this saleoff code
+            delete: Remove this saleoff code forever
+      saleoff_codes:
+        show:
+          other: Other Saleoff Codes
+  activerecord:
+    attributes:
+      'refinery/saleoff_codes/saleoff_code':
+        begin_at: Begin At
+        end_at: End At
+        code: Code
+        percent: Percent
+        user_id: User

@@ -8,3 +8,9 @@
 
 # Added by Refinery CMS Pages extension
 Refinery::Pages::Engine.load_seed
+
+# Added by Refinery CMS Invication Codes extension
+Refinery::InvicationCodes::Engine.load_seed
+
+# Added by Refinery CMS Saleoff Codes extension
+Refinery::SaleoffCodes::Engine.load_seed

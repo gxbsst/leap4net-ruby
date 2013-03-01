@@ -1,0 +1,32 @@
+es:
+  refinery:
+    plugins:
+      invication_codes:
+        title: Invication Codes
+#        article: masculino/femenino
+    invication_codes:
+      admin:
+        invication_codes:
+          actions:
+            create_new: Crear nuevo invication code
+            reorder: Reordenar invication codes
+            reorder_done: Reordenación de invication codes completada
+          records:
+            title: Invication Codes
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay invication codes todavía. Pulsa en "Crear nuevo Invication Code" para crear tu primer invication code.
+          invication_code:
+            view_live_html: Ver este invication code como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este invication code
+            delete: Borrar este invication code para siempre
+      invication_codes:
+        show:
+          other: Otros invication codes
+  activerecord:
+    attributes:
+      'refinery/invication_codes/invication_code':
+        begin_at: Begin At
+        end_at: End At
+        code: Code
+        user_type: User Type
+        user_id: User

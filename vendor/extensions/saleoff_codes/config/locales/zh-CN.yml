@@ -1,0 +1,33 @@
+zh-CN:
+  refinery:
+    plugins:
+      saleoff_codes:
+        title: Saleoff Codes
+    saleoff_codes:
+      admin:
+        saleoff_codes:
+          actions:
+            create_new: 建立新的 Saleoff Code
+            reorder: 对 Saleoff Codes 重新排序
+            reorder_done: 对 Saleoff Codes 的重新排序结束
+          records:
+            title: Saleoff Codes
+            sorry_no_results: 对不起，未找到结果。 #Sorry! There are no results found.
+
+            # There are no Saleoff Codes yet. Click "Add New Saleoff Code" to add your first saleoff code.
+            no_items_yet: 目前没有 Saleoff Codes . 点击 "Add New Saleoff Code" 创建一个saleoff code.
+          saleoff_code:
+            view_live_html: 查看 saleoff code 的最新内容.<br/><em>(新窗口中打开)</em>
+            edit: 编辑 saleoff code
+            delete: 永久删除 saleoff code
+      saleoff_codes:
+        show:
+          other: 其他 Saleoff Codes
+  activerecord:
+    attributes:
+      'refinery/saleoff_codes/saleoff_code':
+        begin_at: Begin At
+        end_at: End At
+        code: Code
+        percent: Percent
+        user_id: User

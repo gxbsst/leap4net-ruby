@@ -1,0 +1,31 @@
+sk:
+  refinery:
+    plugins:
+      saleoff_codes:
+        title: Saleoff Codes
+    saleoff_codes:
+      admin:
+        saleoff_codes:
+          actions:
+            create_new: Pridať Saleoff Code
+            reorder: Preusporiadať Saleoff Codes
+            reorder_done: Koniec radenia Saleoff Codes
+          records:
+            title: Saleoff Codes
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne Saleoff Codes. Kliknite na "Pridať Saleoff Code" pre pridanie prvého saleoff code.
+          saleoff_code:
+            view_live_html: Zobraziť náhľad saleoff code<br/><em>(otvorí sa v novom okne)</em>
+            edit: Upraviť saleoff code
+            delete: Zmazať saleoff code
+      saleoff_codes:
+        show:
+          other: Daľšie Saleoff Codes
+  activerecord:
+    attributes:
+      'refinery/saleoff_codes/saleoff_code':
+        begin_at: Begin At
+        end_at: End At
+        code: Code
+        percent: Percent
+        user_id: User

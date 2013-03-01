@@ -1,0 +1,11 @@
+<% content_for :body do %>
+  <ul id="invication_codes">
+    <% @invication_codes.each do |invication_code| %>
+      <li>
+        <%= link_to invication_code.code, refinery.invication_codes_invication_code_path(invication_code) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>

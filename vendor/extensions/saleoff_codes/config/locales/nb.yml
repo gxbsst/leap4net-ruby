@@ -1,0 +1,31 @@
+nb:
+  refinery:
+    plugins:
+      saleoff_codes:
+        title: Saleoff Codes
+    saleoff_codes:
+      admin:
+        saleoff_codes:
+          actions:
+            create_new: Lag en ny Saleoff Code
+            reorder: Endre rekkefølgen på Saleoff Codes
+            reorder_done: Ferdig å endre rekkefølgen Saleoff Codes
+          records:
+            title: Saleoff Codes
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Saleoff Codes enda. Klikk på "Lag en ny Saleoff Code" for å legge til din første saleoff code.
+          saleoff_code:
+            view_live_html: Vis hvordan denne saleoff code ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne saleoff code
+            delete: Fjern denne saleoff code permanent
+      saleoff_codes:
+        show:
+          other: Andre Saleoff Codes
+  activerecord:
+    attributes:
+      'refinery/saleoff_codes/saleoff_code':
+        begin_at: Begin At
+        end_at: End At
+        code: Code
+        percent: Percent
+        user_id: User

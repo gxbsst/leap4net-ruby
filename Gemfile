@@ -26,13 +26,13 @@ end
 
 group :development do
   gem "better_errors", '0.2.0'
+  gem 'binding_of_caller'
 end
 
 gem "stickies", :git => "git://github.com/techbang/stickies.git"
 
 gem 'jquery-rails', '~> 2.0.0'
 
-gem 'binding_of_caller'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
@@ -60,3 +60,6 @@ gem 'refinerycms-i18n', '~> 2.0.0'
 #  gem 'refinerycms-page-images', '~> 2.0.0'
 gem 'china_pay'
 gem "ruby-paypal", :git => "git://github.com/Reprazent/ruby-paypal.git"
+
+gem 'refinerycms-invication_codes', :path => 'vendor/extensions'
+gem 'refinerycms-saleoff_codes', :path => 'vendor/extensions'

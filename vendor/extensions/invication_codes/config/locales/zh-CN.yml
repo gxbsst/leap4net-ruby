@@ -1,0 +1,33 @@
+zh-CN:
+  refinery:
+    plugins:
+      invication_codes:
+        title: Invication Codes
+    invication_codes:
+      admin:
+        invication_codes:
+          actions:
+            create_new: 建立新的 Invication Code
+            reorder: 对 Invication Codes 重新排序
+            reorder_done: 对 Invication Codes 的重新排序结束
+          records:
+            title: Invication Codes
+            sorry_no_results: 对不起，未找到结果。 #Sorry! There are no results found.
+
+            # There are no Invication Codes yet. Click "Add New Invication Code" to add your first invication code.
+            no_items_yet: 目前没有 Invication Codes . 点击 "Add New Invication Code" 创建一个invication code.
+          invication_code:
+            view_live_html: 查看 invication code 的最新内容.<br/><em>(新窗口中打开)</em>
+            edit: 编辑 invication code
+            delete: 永久删除 invication code
+      invication_codes:
+        show:
+          other: 其他 Invication Codes
+  activerecord:
+    attributes:
+      'refinery/invication_codes/invication_code':
+        begin_at: Begin At
+        end_at: End At
+        code: Code
+        user_type: User Type
+        user_id: User

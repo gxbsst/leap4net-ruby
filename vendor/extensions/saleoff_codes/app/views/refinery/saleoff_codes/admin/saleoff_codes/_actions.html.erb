@@ -1,0 +1,25 @@
+<ul>
+  <% if ::Refinery::SaleoffCodes::Admin::SaleoffCodesController.searchable? %>
+    <li>
+      <%= render '/refinery/admin/search', :url => refinery.saleoff_codes_admin_saleoff_codes_path %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), refinery.new_saleoff_codes_admin_saleoff_code_path,
+                 :class => "add_icon" %>
+  </li>
+<% if !searching? && ::Refinery::SaleoffCodes::Admin::SaleoffCodesController.sortable? && ::Refinery::SaleoffCodes::SaleoffCode.any? %>
+  <li>
+    <%= link_to t('.reorder', :what => "Saleoff Codes"),
+                 refinery.saleoff_codes_admin_saleoff_codes_path,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Saleoff Codes"),
+                 refinery.saleoff_codes_admin_saleoff_codes_path,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>
