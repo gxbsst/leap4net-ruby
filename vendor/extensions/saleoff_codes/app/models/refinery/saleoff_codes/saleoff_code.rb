@@ -8,6 +8,13 @@ module Refinery
       acts_as_indexed :fields => [:code]
 
       validates :code, :presence => true, :uniqueness => true
+
+      def available?
+        Time.now < self.end_at && Time.now >self.begin_at
+      end
+
     end
   end
 end
+
+

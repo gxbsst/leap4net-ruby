@@ -36,6 +36,9 @@ Leap4Net::Application.routes.draw do
     end
   end
 
+  resources :orders
+
+
   root :to => 'static_pages#index'
   match '/login' => 'sessions#new'
 

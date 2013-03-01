@@ -1,23 +1,40 @@
-# encoding: utf-8
-class PaymentsController < ApplicationController
+#encoding: utf-8
+
+class OrdersController < ApplicationController
+  before_filter :authenticate_user
+  before_filter :get_user
+
+  def new
+    @order = Order.new
+  end
 
   def create
-      # Generate A Order
-      order = Order.create(:price)
-      # payment
+
+    order = Order.new(params[:order])
+    order.so = SecureRandom.hex
+
+    if order.save
+      pay(order)
+    end
   end
 
-  def alipay
-      redirect_to ChinaPay::Alipay::Merchant.new('2088801240842311', 'yf46ds05nkrwdggnmftchrk83tpaza5j')
-                  .create_order('KC20130132200001D', 'iPhone 5 126G 黑色 x 1', '感谢您购买 iPhone 5 ！')
-                  .seller_email('shannon.mao@sidways.com').total_fee(0.01)
-                  .direct_pay
-                  .after_payment_redirect_url('http://www.sidways.lab/success')
-                  .notification_callback_url('http://www.sidways.lab/notify')
-                  .gateway_api_url
+  protected
+
+  def pay(order)
+    order.billing_method == 'alipay' ? alipay(order) : paypal(order)
   end
 
-  def paypal
+  def alipay(order)
+    redirect_to ChinaPay::Alipay::Merchant.new('2088801240842311', 'yf46ds05nkrwdggnmftchrk83tpaza5j')
+                .create_order('KC20130132200001D', 'iPhone 5 126G 黑色 x 1', '感谢您购买 iPhone 5 ！')
+                .seller_email('shannon.mao@sidways.com').total_fee(0.01)
+                .direct_pay
+                .after_payment_redirect_url('http://www.sidways.lab/success')
+                .notification_callback_url('http://www.sidways.lab/notify')
+                .gateway_api_url
+  end
+
+  def paypal(order)
 
     username = "test2_1356319825_biz_api1.sidways.com";
     password = "1356319845";
@@ -122,6 +139,10 @@ class PaymentsController < ApplicationController
     end
 
 
+  end
+
+  def get_user
+    @user ||= current_user
   end
 
 end

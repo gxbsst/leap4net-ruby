@@ -11,17 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130301022610) do
+ActiveRecord::Schema.define(:version => 20130301063317) do
 
   create_table "orders", :force => true do |t|
-    t.string   "leap_type",  :limit => 0
-    t.string   "status",     :limit => 0
-    t.decimal  "pay_price",               :precision => 10, :scale => 0
+    t.string   "leap_type",      :limit => 0
+    t.string   "status",         :limit => 0
+    t.decimal  "pay_price",                   :precision => 10, :scale => 0
     t.datetime "buy_date"
     t.datetime "deadline"
     t.integer  "user_id"
-    t.datetime "created_at",                                             :null => false
-    t.datetime "updated_at",                                             :null => false
+    t.datetime "created_at",                                                 :null => false
+    t.datetime "updated_at",                                                 :null => false
+    t.string   "so"
+    t.string   "name"
+    t.integer  "qty"
+    t.text     "description"
+    t.float    "shipping_rate"
+    t.float    "tax_rate"
+    t.float    "original_price"
+    t.string   "saleoff_code"
+    t.string   "billing_method", :limit => 0
   end
 
   create_table "refinery_images", :force => true do |t|
