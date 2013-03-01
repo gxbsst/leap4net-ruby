@@ -3,7 +3,7 @@ Leap4Net::Application.routes.draw do
   resources :static_pages do
     collection do
       get 'why_vpn'
-      get 'setup_howto'
+      get 'howto'
       get 'login'
       get 'contactus'
       get 'faq'

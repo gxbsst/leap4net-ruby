@@ -1,0 +1,28 @@
+zh:
+  hello: '你好'
+  Chinese: '中文'
+  English: '英文'
+  login: 
+    enter_invitation_code: '请输入邀请码'
+    no_invitation_code: "没有邀请码？"
+    send_email: "发送私信到我们的微博帐号索取"
+    click_here: "点击此处"
+    user_name: '用户名'
+    password: '密码'
+    forget_password: '忘记密码？'
+    info: '*注册用户请使用用户名和密码登入'
+  navigation:
+    index: '首页'
+    vpn: '什么是VPN'
+    set_up: '配置手册'
+    order: '购买套餐'
+    account: '我的账户'
+    contact: '联系我们'
+  index_page:
+    info: "<h1>无限互联,网络世界</h1><p class='mb30'>匿名网上冲浪 <br />在公共场合防止隐私泄露<br /> 做一切你想做的事<br />Youtube,Facebook,Twitter</p>"
+    location: "您可以在这些国家使用我们的服务："
+  setup_howto:
+    manual: "Leap4.Net 配置手册"
+    download_manual: "请按您使用的操作系统下载配置手册。"
+
+

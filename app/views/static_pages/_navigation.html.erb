@@ -1,18 +1,26 @@
-<ul class="clearfix">
-  <li class="firstchild">
-    <%= link_to "首页", root_url %></li>
-    <li><%= link_to "什么是VPN", why_vpn_static_pages_path %></li>
-    <li><%= link_to "配置手册", setup_howto_static_pages_path %></li>
-    <li><%= link_to "FAQ", faq_static_pages_path %></li>
-    <li><a href="order.html">购买套餐</a></li>
-    <li><%= link_to "联系我们", contactus_static_pages_path %></li>
-    <% if current_user.is_common? %>
-      <li>
-        <%= link_to user_path(current_user) do %>
-          <span id="result_box" lang="zh-CN" xml:lang="zh-CN">
-            我的账户
-          </span>
-        <% end %>
-      </li>
-    <% end %>
-</ul>
+<div class="logo">
+  <%= link_to root_url do %>
+    <%= image_tag "#{I18n.locale}/logo.gif", :width => 346, :height => 40 %>
+  <% end %>
+</div>
+<div class="navi">
+  <ul class="clearfix">
+    <li class="firstchild">
+      <%= link_to t("navigation.index"), root_url %></li>
+      <li><%= link_to t("navigation.vpn"), why_vpn_static_pages_url %></li>
+      <li><%= link_to t("navigation.set_up"), setup_howto_static_pages_path %></li>
+      <li><%= link_to "FAQ", faq_static_pages_path %></li>
+      <li><a href="order.html"><%= t("navigation.order")%></a></li>
+      <li><%= link_to t("navigation.contact"), contactus_static_pages_path %></li>
+      <% if current_user.is_common? %>
+        <li>
+          <%= link_to user_path(current_user) do %>
+            <span id="result_box">
+              <%= t('navigation.account') %>
+            </span>
+          <% end %>
+        </li>
+      <% end %>
+  </ul>
+</div>
+

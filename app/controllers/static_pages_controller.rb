@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
   def why_vpn
   end
 
-  def setup_howto
+  def howto
   end
 
   def login
@@ -17,4 +17,5 @@ class StaticPagesController < ApplicationController
 
   def faq
   end
+
 end

@@ -3,3 +3,34 @@
 
 en:
   hello: "Hello world"
+  Chinese: 'Chinese'
+  English: 'English'
+  login:
+    enter_invitation_code: 'Please enter the invitation code'
+    no_invitation_code: "Don't have an invitation code?"
+    send_email: "Please mail us to get it"
+    click_here: "Click Here"
+    user_name: "Username"
+    password: "Password"
+    forget_password: 'Forget password?'
+    info: '*Login using your existing username and password.'
+  navigation:
+    index: 'Home'
+    vpn: 'Why VPN'
+    set_up: 'Setup HowTo'
+    order: 'Order'
+    account: 'Account'
+    contact: 'Contact Us'
+  index_page:
+    info: "<h1>FREE YOUR INTERNET</h1><p class='mb30'>Access blocked sites anytime, anywhere!\
+          <br />Speed Optimized Global VPN Network<br />Super-simple setup within a few minutes</p>"
+    location: "ACCESS TO ALL OUR SERVERS:"
+  setup_howto:
+    manual: 'Leap4.Net Manual'
+    download_manual: 'Please select your operating system and connection method in below.'
+  profile:
+    change_password: 'Change Password'
+    product: 'Products'
+    product_status: 'Products Status'
+    
+

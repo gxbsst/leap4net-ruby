@@ -1,0 +1,8 @@
+<%= link_to params.merge(:locale => :zh) do %>
+  <span class="<%= span_class if params.has_value?('zh') %>"><%= t :Chinese %></span>
+<% end %>
+ ｜
+<%= link_to params.merge(:locale => :en) do %>
+  <span class="<%= span_class if params.has_value?('en') %>"><%= t :English %></span>
+<% end %> 
+

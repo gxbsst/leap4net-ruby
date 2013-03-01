@@ -2,12 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Leap4Net</title>
-  <% if I18n.locale == :en %>
-    <%= stylesheet_link_tag    "en/application", :media => "all" %>
-  <% elsif I18n.locale == :zh %>
-    <%= stylesheet_link_tag    "zh/application", :media => "all" %>
-  <% end %>
+  <title>Leap4.net 飞跃重洋</title>
+  <%= stylesheet_link_tag    "#{I18n.locale}/application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -16,12 +12,10 @@
   <div id="login_mainholder">
     <div class="login_top">
       <div class="logo">
-        <a href="login.html">
-          <%= image_tag "#{I18n.locale}/logo.gif", :width => 346, :height => 40, :alt => 'leap4.net' %>
-        </a>
+        <%= image_tag "#{I18n.locale}/logo.gif", :width => 346, :height => 40, :alt => 'leap4.net' %>
       </div>
       <div class="version2">
-        <span class="current2">中文</span> ｜ <a href="../html_english/login.html">英文</a>
+        <%= render :partial => "change_language", :locals => {:span_class => 'current2'} %>
       </div>
     </div>
     <%= render_stickies(:close => "") %>
@@ -30,7 +24,7 @@
         <div class="content">
           <%= form_tag "/sessions/guest_login", :method => :post do %>
             <p class="mb15" style="font-size:16px;">
-              <span id="result_box" lang="zh-CN" xml:lang="zh-CN">请输入邀请码：</span>
+              <span id="result_box" lang="zh-CN" xml:lang="zh-CN"><%= t('login.enter_invitation_code') %>：</span>
             </p>
             <p class="mb15"><input name="invitation_code" type="text" style="width:250px;" /></p>
             <p class="mb15">
@@ -39,31 +33,31 @@
               </a>
             </p>
           <% end %>
-          <p>没有邀请码？</p>
-          <p>发送私信到我们的微博帐号索取 &lt;<a href="http://www.weibo.com/Leap4Nets/">点击这里</a>&gt; </p>
+          <p><%= t "login.no_invitation_code" %></p>
+          <p><%= t "login.send_email" %> &lt;<a href="http://www.weibo.com/Leap4Nets/"><%= t "login.click_here" %></a>&gt; </p>
         </div>
       </div>
       <div class="box_login">
         <%= form_tag sessions_path do %>
           <table width="360" border="0" cellspacing="0" cellpadding="0">
             <tr>
-              <th width="33%">用户名</th>
+              <th width="33%"><%= t "login.user_name" %></th>
               <td width="67%"><input name="user[email]" type="text" style="width:200px;" /></td>
             </tr>
             <tr>
-              <th>密码</th>
+              <th><%= t "login.password" %></th>
               <td><input name="user[password]" type="password" style="width:200px;" /></td>
             </tr>
             <tr>
               <td>&nbsp;</td>
               <td>
-              <p class="mb10"><a href="forget.html">忘记密码？</a></p>
+              <p class="mb10"><a href="forget.html"><%= t "login.forget_password" %></a></p>
                 <p class="mb15">
                   <a href="#" id="login_submit">
                     <%= image_tag "#{I18n.locale}/btn_enter.gif", :width => 123, :height => 43, :alt => 'Enter' %>
                   </a>
                 <p>
-                <p>*注册用户请使用用户名和密码登入 </p>
+                <p><%= t "login.info" %></p>
               </td>
             </tr>
           </table>
