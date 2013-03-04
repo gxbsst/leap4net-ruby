@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130301063317) do
+ActiveRecord::Schema.define(:version => 20130304031419) do
 
   create_table "orders", :force => true do |t|
-    t.string   "leap_type",      :limit => 0
+    t.string   "leap_type",      :limit => 0,                                :null => false
     t.string   "status",         :limit => 0
     t.decimal  "pay_price",                   :precision => 10, :scale => 0
     t.datetime "buy_date"
