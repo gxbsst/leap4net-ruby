@@ -11,17 +11,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130301063317) do
+ActiveRecord::Schema.define(:version => 20130304063218) do
+
+  create_table "alipay_logs", :force => true do |t|
+    t.string   "body"
+    t.string   "buyer_email"
+    t.string   "buyer_id"
+    t.string   "exterface"
+    t.string   "is_success"
+    t.string   "notify_id"
+    t.string   "notify_time"
+    t.string   "notify_type"
+    t.string   "out_trade_no"
+    t.string   "payment_type"
+    t.string   "seller_email"
+    t.string   "seller_id"
+    t.string   "subject"
+    t.string   "total_fee"
+    t.string   "trade_no"
+    t.string   "trade_status"
+    t.string   "sign"
+    t.string   "sign_type"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "orders", :force => true do |t|
     t.string   "leap_type",      :limit => 0
     t.string   "status",         :limit => 0
-    t.decimal  "pay_price",                   :precision => 10, :scale => 0
+    t.float    "pay_price"
     t.datetime "buy_date"
     t.datetime "deadline"
     t.integer  "user_id"
-    t.datetime "created_at",                                                 :null => false
-    t.datetime "updated_at",                                                 :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.string   "so"
     t.string   "name"
     t.integer  "qty"
@@ -31,6 +54,18 @@ ActiveRecord::Schema.define(:version => 20130301063317) do
     t.float    "original_price"
     t.string   "saleoff_code"
     t.string   "billing_method", :limit => 0
+  end
+
+  create_table "paypal_logs", :force => true do |t|
+    t.string   "timestamp"
+    t.string   "correlationid"
+    t.string   "ack"
+    t.string   "version"
+    t.string   "token"
+    t.string   "order_num"
+    t.text     "desc"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "refinery_images", :force => true do |t|

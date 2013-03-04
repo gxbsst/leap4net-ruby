@@ -36,7 +36,14 @@ Leap4Net::Application.routes.draw do
     end
   end
 
-  resources :orders
+  resources :orders do
+    collection do
+      get :success
+      get :notify
+      get :cancel
+      get :confirm
+    end
+  end
 
 
   root :to => 'static_pages#index'

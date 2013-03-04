@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   end
 
   def is_guest?
-    user_type == 'Guest'
+    user_type == 'Guest' || name == 'guest'
   end 
 
   def nick_name

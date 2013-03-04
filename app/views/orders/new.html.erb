@@ -1,49 +1,79 @@
- <div id="mainholder">
-    <div id="header">
-        <div class="main">
-           <%= render "static_pages/navigation" %>
-      </div>
+<div id="mainholder">
+  <div id="header">
+    <div class="main">
+      <%= render "static_pages/navigation" %>
     </div>
-    <div class="order_table">
-      <div class="order_left">
+  </div>
+  <%=  form_for @order do |f| %>
+      <div class="order_table">
+        <div class="order_left">
           <div class="main">
-                <%=raw t("order.info") %>
-            </div>
+            <%=raw t("order.info") %>
+          </div>
         </div>
         <div class="order_right">
           <div class="main">
-              <div class="m1"><label><input type="radio" name="month" /></label></div>
-                <div class="m6">
-                  <label><input type="radio" name="month" checked="checked" /></label></div>
-                <div class="m12"><label><input name="month" type="radio" /></label></div>
-                <div class="clear"></div>
-                <div class="order_info">
-                  <div class="email">
-                      <p><%=raw t("order.email_address") %></p>
-                      <p><input name="" type="text" style="width:300px;"/></p>
-                    </div>
-                  <div class="payment">
-                    <p><%= t("order.choose_payment") %></p>
-                      <p><label><input name="payment" type="radio" value="" />
-                      <%= image_tag("#{I18n.locale}/paypal.gif", :width => 51, :height => 32, :alt => 'Paypal') %>
-                      </label>
-                      <label><input name="payment" type="radio" value="" />
-                      <%= image_tag("#{I18n.locale}/zhifubao.gif", :width => 51, :height => 32) %>
-                      </label></p>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="order_btn">
-                      <a href="#">
-                        <%= image_tag "#{I18n.locale}/btn_order.gif", 
-                          :width => 163, :height => 58, :alt => t('order.alt_order') %>
-                      </a></div>
-                    <div class="order_btn_info">
-                      <%=raw t("order.payment_info") %>
-                    </div>
-                    <div class="clear"></div>
-                </div>
+            <div class="m1"><label><%= f.radio_button :leap_type, "day" %></label></div>
+            <div class="m6">
+              <label><%= f.radio_button :leap_type, "month" %></label></div>
+            <div class="m12"><label><%= f.radio_button :leap_type, "year", :checked => true %></label></div>
+            <div class="clear"></div>
+            <div class="order_info">
+              <div class="email">
+                <p><%=raw t("order.email_address") %></p>
+                <p><input name="" type="text" style="width:300px;"/></p>
+                <% if current_user.is_guest? %>
+                <p>
+                  Enter your sale-off code:
+                  <!--<input id="sale" name="sale" type="text" style="width: 128px;" onblur="discountService()"/>-->
+                  <%= f.text_field :saleoff_code, :style => "width: 128px" %>
+                </p>
+                <% end %>
+              </div>
+              <div class="payment">
+                <p><%= t("order.choose_payment") %></p>
+                <p>
+                  <label>
+                    <% if params[:locale] == 'en' %>
+                        <%= f.radio_button :billing_method, "paypal", :checked =>  true %>
+                    <% else %>
+                        <%= f.radio_button :billing_method, "paypal" %>
+                    <% end %>
+                    <%= image_tag("#{I18n.locale}/paypal.gif", :width => 51, :height => 32, :alt => 'Paypal') %>
+                  </label>
+                  <label>
+                    <% if params[:locale] == 'zh' %>
+                        <%= f.radio_button :billing_method, "alipay", :checked => true %>
+                    <% else %>
+                        <%= f.radio_button :billing_method, "alipay" %>
+                    <% end %>
+                    <%= image_tag("#{I18n.locale}/zhifubao.gif", :width => 51, :height => 32) %>
+                  </label>
+                </p>
+              </div>
+              <div class="clear"></div>
+              <div class="order_btn">
+                <%= link_to "javascript:void(0)", :id => :submit do %>
+                    <%= image_tag "#{I18n.locale}/btn_order.gif",
+                                  :width => 163, :height => 58, :alt => t('order.alt_order') %>
+                <% end %>
+              </div>
+              <div class="order_btn_info">
+                <%=raw t("order.payment_info") %>
+              </div>
+              <div class="clear"></div>
             </div>
+          </div>
         </div>
         <div class="clear"></div>
-    </div>
+      </div>
+  <% end %>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#submit").click(function(){
+            $("#new_order").submit();
+        });
+    });
+</script>

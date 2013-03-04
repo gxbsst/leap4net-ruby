@@ -9,7 +9,7 @@ class PaymentsController < ApplicationController
 
   def alipay
       redirect_to ChinaPay::Alipay::Merchant.new('2088801240842311', 'yf46ds05nkrwdggnmftchrk83tpaza5j')
-                  .create_order('KC20130132200001D', 'iPhone 5 126G 黑色 x 1', '感谢您购买 iPhone 5 ！')
+                  .create_order('KC20130132200001D', 'iPhone 5 ', '感谢您购买 ！')
                   .seller_email('shannon.mao@sidways.com').total_fee(0.01)
                   .direct_pay
                   .after_payment_redirect_url('http://www.sidways.lab/success')
