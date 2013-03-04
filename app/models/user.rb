@@ -45,10 +45,10 @@ class User < ActiveRecord::Base
   end
 
   def is_guest?
-    user_type == 'Guest'
+    name == 'guest'
   end 
 
   def nick_name
-    is_guest? ? 'Guest' : email
+    is_guest? ? 'guest' : email
   end
 end
