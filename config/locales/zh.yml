@@ -42,3 +42,20 @@ zh:
     choose_payment: "请选择付费方式："
     payment_info: " *一旦您点击&quot;立即定购&quot;按钮并且完成了支付.<br /> 您将收到一份包含您用户名和密码的邮件. "
     alt_order: '立刻下单'
+  message:
+    login_success: '登录成功。'
+    un_invitation_code: "无效邀请码或者邀请码已过期！"
+    email_or_password_disabled: '邮箱或密码错误！'
+    logout: '成功退出登录。'
+    write_invitation_code: '请填写邀请码。'
+    write_email_and_password: '请填写邮箱或密码！'
+    unable_access: '无法访问！'
+    modify_password_success: '成功修改密码。'
+    modify_password_failed: '修改密码失败！'
+    current_password_error: "当前密码填写错误。"
+    be_empty: "三项都不能为空！"
+    not_the_same_password: "新密码和确认密码不同！"
+
+
+
+
