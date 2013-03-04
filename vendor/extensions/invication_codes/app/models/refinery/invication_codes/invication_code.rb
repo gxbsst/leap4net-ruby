@@ -8,6 +8,10 @@ module Refinery
       acts_as_indexed :fields => [:code, :user_type]
 
       validates :code, :presence => true, :uniqueness => true
+
+      def within_deadline?
+        end_at > Time.now
+      end
     end
   end
 end

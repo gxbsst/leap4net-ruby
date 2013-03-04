@@ -9,9 +9,9 @@ class SessionsController < ApplicationController
   
   #邀请码登录
   def guest_login
-    user = User.find_by_invitation_code(params[:invitation_code])
-    if user && user.within_deadline?
-      session[:user_id] = user.id
+    invitation_code = Refinery::InvicationCodes::InvicationCode.find_by_code(params[:invitation_code])
+    if invitation_code && invitation_code.within_deadline?
+      session[:user_id] = User.find_by_name('guest').id
       notice_stickie "登录成功。"
       redirect_to root_url
     else
