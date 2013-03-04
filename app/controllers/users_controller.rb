@@ -14,10 +14,10 @@ class UsersController < ApplicationController
   def reset_password
     @user.set_password params[:password]
     if @user.save
-      notice_stickie "成功修改密码。"
+      notice_stickie t("message.modify_password_success")
       redirect_to user_path(@user)
     else
-      error_stickie "修改密码失败！"
+      error_stickie t("message.modify_password_failed")
       render :change_password
     end
   end
@@ -35,17 +35,17 @@ class UsersController < ApplicationController
 
   def authenticate_password
     unless @user.authenticate(params[:old_password])
-      error_stickie "当前密码填写错误！"
+      error_stickie t("message.current_password_error")
       render :change_password
     end
   end
 
   def check_params
     if params[:old_password].blank? || params[:password].blank? ||params[:password_confirmation].blank?
-      warning_stickie "三项都不能为空！"
+      warning_stickie t("message.be_empty")
       render :change_password
     elsif params[:password] != params[:password_confirmation]
-      warning_stickie '新密码和确认密码不同！'
+      warning_stickie t('message.not_the_same_password')
       render :change_password
     end
   end

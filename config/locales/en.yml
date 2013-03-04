@@ -51,6 +51,17 @@ en:
       Once you select the "Order Now" button and finished payment, <br />
       you will revice the username and password in your email inbox.
     alt_order: 'Order Now'
-
-
+  message:
+    login_success: 'Successful user login.'
+    un_invitation_code: "Invitation code is disabled or overdue!"
+    email_or_password_disabled: 'Email or password is disabled!'
+    logout: 'Logout successful.'
+    write_invitation_code: "Please fill out the invitation code!"
+    write_email_and_password: 'Please fill out the email and password!'
+    unable_access: "Unable to access!"
+    modify_password_success: "Successfully modified password."
+    modify_password_failed: 'Failed modified password.'
+    current_password_error: "Current password fill in error!"
+    be_empty: "All can not be empty"
+    not_the_same_password: "New password and confirm the password is not the same!"
 
