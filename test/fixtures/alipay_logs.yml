@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  body: MyString
+  buyer_email: MyString
+  buyer_id: MyString
+  exterface: MyString
+  is_success: MyString
+  notify_id: MyString
+  notify_time: MyString
+  notify_type: MyString
+  out_trade_no: MyString
+  payment_type: MyString
+  seller_email: MyString
+  seller_id: MyString
+  subject: MyString
+  total_fee: MyString
+  trade_no: MyString
+  trade_status: MyString
+  sign: MyString
+  sign_type: MyString
+
+two:
+  body: MyString
+  buyer_email: MyString
+  buyer_id: MyString
+  exterface: MyString
+  is_success: MyString
+  notify_id: MyString
+  notify_time: MyString
+  notify_type: MyString
+  out_trade_no: MyString
+  payment_type: MyString
+  seller_email: MyString
+  seller_id: MyString
+  subject: MyString
+  total_fee: MyString
+  trade_no: MyString
+  trade_status: MyString
+  sign: MyString
+  sign_type: MyString

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  timestamp: MyString
+  correlationid: MyString
+  ack: MyString
+  version: MyString
+  token: MyString
+  order_num: MyString
+  desc: MyString
+
+two:
+  timestamp: MyString
+  correlationid: MyString
+  ack: MyString
+  version: MyString
+  token: MyString
+  order_num: MyString
+  desc: MyString

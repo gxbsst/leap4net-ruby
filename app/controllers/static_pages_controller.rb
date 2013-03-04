@@ -4,6 +4,10 @@ class StaticPagesController < ApplicationController
   end
 
   def howto
+    if params[:resource]
+      pdf_filename = File.join(Rails.root, "pdf/howto_pdf/#{params[:resource]}.pdf")
+      send_file(pdf_filename, :filename => "#{params[:resource]}", :type => "application/pdf", :disposition => 'inline')
+    end
   end
 
   def login
