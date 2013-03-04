@@ -55,6 +55,12 @@ zh:
     current_password_error: "当前密码填写错误。"
     be_empty: "三项都不能为空！"
     not_the_same_password: "新密码和确认密码不同！"
+  forgot_password:
+    email_address: '邮箱地址'
+    info: '请输入您的登入Leap4Net的邮箱地址来重新获取密码。'
+    mailing_success: '邮件发送成功，请查收。'
+    no_user: '没有这个邮箱的用户！'
+    write_email: "请填写邮箱地址。"
 
 
 

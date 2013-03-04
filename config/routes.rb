@@ -29,6 +29,8 @@ Leap4Net::Application.routes.draw do
     collection do
       post 'reset_password'
       post 'build_invitation_code'
+      post 'send_password'
+      get 'forgot_password'
     end
 
     member do

@@ -51,7 +51,8 @@
             <tr>
               <td>&nbsp;</td>
               <td>
-              <p class="mb10"><a href="forget.html"><%= t "login.forget_password" %></a></p>
+              <p class="mb10">
+                <%= link_to t("login.forget_password"), forgot_password_users_path %></p>
                 <p class="mb15">
                   <a href="#" id="login_submit">
                     <%= image_tag "#{I18n.locale}/btn_enter.gif", :width => 123, :height => 43, :alt => 'Enter' %>

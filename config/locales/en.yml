@@ -64,4 +64,10 @@ en:
     current_password_error: "Current password fill in error!"
     be_empty: "All can not be empty"
     not_the_same_password: "New password and confirm the password is not the same!"
+  forgot_password:
+    email_address: Email_Address
+    info: 'To reset your password, enter the username you use to sign in to leap4net, the username is an email address.'
+    mailing_success: 'Mailing, please check.'
+    no_user: "Users without this mailbox!"
+    write_email: "Please fill in the e-mail address."
 
