@@ -10,6 +10,13 @@ Leap4Net::Application.routes.draw do
     end
   end
 
+  # STATIC
+  statics = %w(why_vpn howto contactus faq)
+  statics.each do |i|
+    match "/#{i}", :to => "static_pages##{i}", :as => i
+  end
+
+
   resources :payments do
     collection do
       get :pay

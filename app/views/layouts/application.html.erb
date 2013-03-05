@@ -7,6 +7,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body class="<%='home' if @root_path %>">
 <div id="wrapper">
   <div id="top">
@@ -31,7 +32,7 @@
   <div id="footer">
     <div class="main">
       <p class="mb10">
-        <%= link_to t("navigation.index"), root_url %> | <%= link_to t("navigation.vpn"), why_vpn_static_pages_url %> | <%= link_to t("navigation.faq"), faq_static_pages_path %> | <%= link_to t("navigation.set_up"), howto_static_pages_path %> | <%= link_to t("navigation.order"), new_order_path %> | <%= link_to t("navigation.contact"), contactus_static_pages_path %>
+        <%= link_to t("navigation.index"), root_url %> | <%= link_to t("navigation.vpn"), why_vpn_path %> | <%= link_to t("navigation.faq"), faq_path %> | <%= link_to t("navigation.set_up"), howto_path %> | <%= link_to t("navigation.order"), new_order_path %> | <%= link_to t("navigation.contact"), contactus_path %>
       </p>
       <p>Copyright © 2009 - <%= Time.now.strftime('%Y')%> Sidways InfoTech. All rights reserved.</p>
     </div>
