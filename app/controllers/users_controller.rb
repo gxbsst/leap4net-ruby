@@ -35,8 +35,11 @@ class UsersController < ApplicationController
   end
 
   def build_invitation_code
-    guest_user = @user.build_guest_user
-    @invitation_code = guest_user.invitation_code
+    @invitation_code = Refinery::InvicationCodes::InvicationCode.new(:begin_at => Time.now)
+    @invitation_code.user_id = current_user.id
+    @invitation_code.end_at = Time.now + 6.months
+    @invitation_code.code = User.init_password #实则为生成随机码
+    @invitation_code.save
   end
 
   private

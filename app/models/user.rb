@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
     o =  [('a'..'z'),('A'..'Z')].map{|i| i.to_a}.flatten
     (0...50).map{ o[rand(o.length)] }.join
   end
-
+  #同时生成邀请码
   def self.init_password
     o =  [('a'..'z'),('A'..'Z')].map{|i| i.to_a}.flatten
     (0...6).map{ o[rand(o.length)] }.join
