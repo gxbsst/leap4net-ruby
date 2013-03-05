@@ -3,6 +3,18 @@ class UsersController < ApplicationController
   before_filter :get_user
   before_filter :check_params, :only => :reset_password
   before_filter :authenticate_password, :only => :reset_password
+  before_filter :authenticate_email, :only => :send_password
+
+  def forgot_password
+    render :layout => false
+  end
+
+  def send_password
+    UserMailer.forgot_password(@user).deliver
+    notice_stickie t("forgot_password.mailing_success")
+    redirect_to login_path
+  end
+
   def show
     @order = @user.orders.first
   end
@@ -28,6 +40,20 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def authenticate_email
+    if params[:user][:email].present?
+      @user = User.find_by_email(params[:user][:email])
+      unless @user
+        error_stickie t('forgot_password.no_user')
+        render :forgot_password, :layout => false
+      end
+    else
+      warning_stickie t("forgot_password.write_email")
+      render :forgot_password, :layout => false
+    end
+      
+  end
 
   def get_user
     @user = current_user
