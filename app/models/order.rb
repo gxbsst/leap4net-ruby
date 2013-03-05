@@ -11,13 +11,13 @@ class Order < ActiveRecord::Base
                   :shipping_rate, :tax_rate, :original_price, :saleoff_code, :billing_method, :email
 
   validates :email, :presence => true, :email_format => true
-
+  attr_accessor :is_old_order
 
   belongs_to :user
 
   before_save :set_default_values
 
-  before_create :set_pay_price, :set_date
+  before_create :set_pay_price, :set_date, :unless => "is_old_order"
 
   def set_date
     self.buy_date = Time.now

@@ -14,3 +14,5 @@ Refinery::InvicationCodes::Engine.load_seed
 
 # Added by Refinery CMS Saleoff Codes extension
 Refinery::SaleoffCodes::Engine.load_seed
+
+User.where(:name => 'guest').first_or_create
