@@ -26,6 +26,7 @@
             <p class="mb15" style="font-size:16px;">
               <span id="result_box" lang="zh-CN" xml:lang="zh-CN"><%= t('login.enter_invitation_code') %>：</span>
             </p>
+            <%= raw locale_param %>
             <p class="mb15"><input name="invitation_code" type="text" style="width:250px;" /></p>
             <p class="mb15">
               <a href="#" id="invitation_submit">
@@ -39,6 +40,7 @@
       </div>
       <div class="box_login">
         <%= form_tag sessions_path do %>
+          <%= raw locale_param %>
           <table width="360" border="0" cellspacing="0" cellpadding="0">
             <tr>
               <th width="33%"><%= t "login.user_name" %></th>
