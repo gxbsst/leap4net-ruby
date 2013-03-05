@@ -1,65 +1,66 @@
 <div id="mainholder">
-    <div id="header">
-        <div class="main">                
-          <%= render "static_pages/navigation" %>
-        </div>
+  <div id="header">
+    <div class="main">                
+      <%= render "static_pages/navigation" %>
+    </div>
     <div class="main_content">
       <div class="myorder_table">
-          <div class="title">
-            <span>
-              <%= link_to t('profile.change_password'), change_password_user_path(current_user) %>
-            </span>
-          </div>
-            <div class="mid">
-<dl class="clearfix">
-                  <dt><%= t("profile.product") %></dt>
-                    <dd><%= current_user.all_remaining_days %> <%= t("profile.day") %></dd>
-                </dl>
-                <dl class="clearfix">
-                  <dt><span id="result_box3" lang="zh-CN" xml:lang="zh-CN"><%= t("profile.invoice_date") %></span></dt>
-                    <dd><%= current_user.invoice_date %></dd>
-                </dl>
-                <dl class="clearfix">
-                  <dt><%= t("profile.due_date") %></dt>
-                    <dd><%= current_user.all_deadline %></dd>
-                </dl>
-                <div class="order_action">
-                  <%= link_to new_order_path do %>
-                    <%= image_tag "#{I18n.locale}/btn_renew.gif", 
-                                    :alt => 'Renew', 
-                                    :width => '144', 
-                                    :height => '44',
-                                    :id => "firstchild" %>
-                  <% end %>
-                </div>
-            </div>
-            <div class="bot">
-              <%= image_tag "#{I18n.locale}/myorder_b.jpg", :width => '960', :height => '36' %>
-            </div>
+        <div class="title">
+          <span>
+            <%= link_to t('profile.change_password'), change_password_user_path(current_user) %>
+          </span>
         </div>
-        <div class="myorder_table">
-          <div class="top">
-            <%= image_tag "#{I18n.locale}/myorder_t.jpg", :width => '960', :height => '25' %>
-          </div>
-            <div class="mid">
-              <div class="gic">
-                <%= form_tag build_invitation_code_users_path, :remote => true do %>
-                  <a href="#" id="build_invitation_code">
-                    <%= image_tag "#{I18n.locale}/btn_gic.gif", 
-                                :width => '293',
-                                :height => '43',
-                                :align => 'absmiddle',
-                                :alt => "Generate Invitation Code" %>
-                  </a>
-                  <input name="invitation_code" type="text" />
-                  <span><%= t("profile.information_text") %></span></div>
-                <% end %>
-            </div>
-            <div class="bot">
-              <%= image_tag "#{I18n.locale}/myorder_b.jpg", :width => '960', :height => '36' %>
-            </div>
+      <div class="mid">
+        <dl class="clearfix">
+          <dt><%= t("profile.product") %></dt>
+            <dd><%= current_user.all_remaining_days %> <%= t("profile.day") %></dd>
+        </dl>
+        <dl class="clearfix">
+          <dt><span id="result_box3" lang="zh-CN" xml:lang="zh-CN"><%= t("profile.invoice_date") %></span></dt>
+            <dd><%= current_user.invoice_date %></dd>
+        </dl>
+        <dl class="clearfix">
+          <dt><%= t("profile.due_date") %></dt>
+            <dd><%= current_user.all_deadline %></dd>
+        </dl>
+        <div class="order_action">
+          <%= link_to new_order_path do %>
+            <%= image_tag "#{I18n.locale}/btn_renew.gif", 
+                            :alt => 'Renew', 
+                            :width => '144', 
+                            :height => '44',
+                            :id => "firstchild" %>
+          <% end %>
         </div>
+      </div>
+      <div class="bot">
+        <%= image_tag "#{I18n.locale}/myorder_b.jpg", :width => '960', :height => '36' %>
+      </div>
     </div>
+    <div class="myorder_table">
+      <div class="top">
+        <%= image_tag "#{I18n.locale}/myorder_t.jpg", :width => '960', :height => '25' %>
+      </div>
+      <div class="mid">
+        <div class="gic">
+          <%= form_tag build_invitation_code_users_path, :remote => true do %>
+            <a href="#" id="build_invitation_code">
+              <%= image_tag "#{I18n.locale}/btn_gic.gif", 
+                          :width => '293',
+                          :height => '43',
+                          :align => 'absmiddle',
+                          :alt => "Generate Invitation Code" %>
+            </a>
+            <input name="invitation_code" type="text" />
+            <span><%= t("profile.information_text") %></span></div>
+          <% end %>
+        </div>
+        <div class="bot">
+          <%= image_tag "#{I18n.locale}/myorder_b.jpg", :width => '960', :height => '36' %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <script>
   $("#build_invitation_code").click(function(){
