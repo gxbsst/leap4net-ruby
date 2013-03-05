@@ -7,7 +7,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%='home' if request.path == '/' %>">
+<body class="<%='home' if @root_path %>">
 <div id="wrapper">
   <div id="top">
     <div class="main">
