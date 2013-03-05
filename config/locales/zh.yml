@@ -5,12 +5,12 @@ zh:
   login: 
     enter_invitation_code: '请输入邀请码'
     no_invitation_code: "没有邀请码？"
-    send_email: "发送私信到我们的微博帐号索取"
+    send_email: "请发送邮件给我们"
     click_here: "点击此处"
     user_name: '用户名'
     password: '密码'
     forget_password: '忘记密码？'
-    info: '*注册用户请使用用户名和密码登入'
+    info: '*使用您的用户名和密码登入'
   navigation:
     index: '首页'
     vpn: '什么是VPN'

@@ -1,0 +1,49 @@
+#stickies .stickies_close_area
+{
+    margin: 0;
+    padding: 0 10px 4px 0;
+    float: right;
+}
+
+#stickies .error_stickie,
+#stickies .warning_stickie,
+#stickies .notice_stickie,
+#stickies .debug_stickie
+{
+    margin: 10px 0;
+    padding: 8px;
+    /*-webkit-border-radius: 10px;*/
+    /*-moz-border-radius: 10px;*/
+    /*-o-border-radius: 10px;*/
+    /*-ms-border-radius: 10px;*/
+    /*-khtml-border-radius: 10px;*/
+    /*border-radius: 10px;*/
+}
+
+#stickies .error_stickie
+{
+    width: 960px;
+    margin: 10px auto 5px auto;
+    /*background-color: rgba(184, 178, 185, 0.31);*/
+}
+
+#stickies .warning_stickie
+{
+    width: 960px;
+    margin: 10px auto 5px auto;
+    /*background-color: rgba(184, 178, 185, 0.31);*/
+}
+
+#stickies .notice_stickie
+{
+    width: 960px;
+    margin: 10px auto 5px auto;
+    /*background-color: rgba(184, 178, 185, 0.31);*/
+}
+
+#stickies .debug_stickie
+{
+    width: 960px;
+    margin: 10px auto 5px auto;
+    /*background-color: rgba(184, 178, 185, 0.31);*/
+}
