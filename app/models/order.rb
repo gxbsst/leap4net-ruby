@@ -8,13 +8,18 @@ class Order < ActiveRecord::Base
   ORDER_ZH_MAPPING = {'day' => 9.00, 'month' => 49.00, 'year' => 399.00}
 
   attr_accessible :buy_date, :deadline, :pay_price, :status, :leap_type, :user_id, :so, :name, :qty, :description,
-                  :shipping_rate, :tax_rate, :original_price, :saleoff_code, :billing_method
+                  :shipping_rate, :tax_rate, :original_price, :saleoff_code, :billing_method, :email
 
   belongs_to :user
 
   before_save :set_default_values
 
-  before_create :set_pay_price
+  before_create :set_pay_price, :set_date
+
+  def set_date
+    self.buy_date = Time.now
+    self.deadline = Time.now + 1.send(leap_type)
+  end
 
   def set_pay_price
     if billing_method == 'paypal'

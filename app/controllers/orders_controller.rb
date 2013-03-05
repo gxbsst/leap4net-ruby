@@ -45,7 +45,8 @@ class OrdersController < ApplicationController
 
     order = Order.find_by_so(params['out_trade_no'])
     order.update_attribute(:status, 'success')
-
+    
+    find_and_login_user(order)
     # TODO:
     # 如果是guest， 要创建一个用户, 然后更新order的user_id,
     # 创建成功， 发送email给用户
@@ -82,12 +83,7 @@ class OrdersController < ApplicationController
     if result['ACK'] == 'Success'
       order.update_attribute(:status, 'success')
 
-      # TODO:
-      # 如果是guest， 要创建一个用户, 然后更新order的user_id,
-      # 创建成功， 发送email给用户
-      # 用创建的用户登录
-
-      # redirect to 我的帐户
+      find_and_login_user(order)
 
       PaypalLog.create(:token => token, :order_num => order.so, :desc => result.to_s)
     else
@@ -98,6 +94,22 @@ class OrdersController < ApplicationController
   end
 
   protected
+
+  # 如果是guest， 要创建一个用户, 然后更新order的user_id,
+  # 创建成功， 发送email给用户
+  # 用创建的用户登录
+  # redirect to 我的帐户
+
+  def find_and_login_user(order)
+    if order.user.is_guest?
+      user = User.build_or_find_common_user(order.email) 
+      order.update_attribute(:user_id, user.id)
+      UserMailer.new_user(user).deliver
+      session[:user_id] = user.id
+    end
+    UserMailer.order(order, order.user).deliver 
+    redirect_to user_path(order.user)
+  end
 
   def pay(order)
     order.billing_method == 'alipay' ? alipay(order) : paypal(order)

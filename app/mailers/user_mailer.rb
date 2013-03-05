@@ -7,4 +7,15 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(:to => user.email, :subject => "Leap4net,请保存好您的密码")
   end
+
+  def new_user(user)
+    @user = user
+    mail(:to => user.email, :subject => "Leap4net,请保存好您的密码")
+  end
+
+  def order(order, user)
+    @order = order
+    @user = user
+    mail(:to => user.email, :subject => "Leap4net,支付成功")
+  end
 end
