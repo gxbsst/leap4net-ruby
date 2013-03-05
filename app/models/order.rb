@@ -21,7 +21,8 @@ class Order < ActiveRecord::Base
 
   def set_date
     self.buy_date = Time.now
-    self.deadline = Time.now + 1.send(leap_type)
+    #一个月按照30天算
+    self.deadline = leap_type == 'month' ? (Time.now + 30.days) : (Time.now + 1.send(leap_type))
   end
 
   def set_pay_price
@@ -41,6 +42,10 @@ class Order < ActiveRecord::Base
 
   def pay_price=(price)
     write_attribute(:pay_price, discout(price))
+  end
+
+  def remaining_days
+    deadline > Time.now ? ((deadline - Time.now)/3600/24).round : 0
   end
 
   def discout(price)

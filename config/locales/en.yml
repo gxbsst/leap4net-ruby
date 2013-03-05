@@ -19,7 +19,7 @@ en:
     vpn: 'Why VPN'
     set_up: 'Setup HowTo'
     order: 'Order'
-    account: 'Account'
+    account: 'My Account'
     contact: 'Contact Us'
     faq: 'FAQ'
   index_page:
@@ -37,6 +37,7 @@ en:
     invoice_date: 'Invoice Date'
     due_date: 'Due Date'
     information_text: 'information text'
+    day: 'Days'
   order:
     info: |
       <h1>Your online freedom and security are just seconds away.</h1>
@@ -73,4 +74,8 @@ en:
     mailing_success: 'Mailing, please check.'
     no_user: "Users without this mailbox!"
     write_email: "Please fill in the e-mail address."
+  change_password:
+    current_password: 'Current Password'
+    new_password: 'New Password'
+    password_confirmation: 'Confirm New Password'
 

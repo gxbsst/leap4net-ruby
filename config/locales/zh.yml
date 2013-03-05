@@ -32,6 +32,7 @@ zh:
     invoice_date: '发票日期'
     due_date: '截至日期'
     information_text: "文本信息"
+    day: '天'
   order:
     info: |
       <h1>简单的设置就能让您畅游网络,不再被束缚.</h1>
@@ -64,7 +65,10 @@ zh:
     mailing_success: '邮件发送成功，请查收。'
     no_user: '没有这个邮箱的用户！'
     write_email: "请填写邮箱地址。"
-
+  change_password:
+    current_password: '当前密码'
+    new_password: '新密码'
+    password_confirmation: '确认新密码'
 
 
 

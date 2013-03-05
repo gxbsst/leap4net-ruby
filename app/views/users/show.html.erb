@@ -13,34 +13,24 @@
             <div class="mid">
 <dl class="clearfix">
                   <dt><%= t("profile.product") %></dt>
-                    <dd><%= @order.leap_type %></dd>
-                </dl>
-<dl class="clearfix">
-                  <dt><span id="result_box2" lang="zh-CN" xml:lang="zh-CN"><%= t("profile.product_status") %></span></dt>
-                    <dd><%= @order.status %></dd>
+                    <dd><%= current_user.all_remaining_days %> <%= t("profile.day") %></dd>
                 </dl>
                 <dl class="clearfix">
                   <dt><span id="result_box3" lang="zh-CN" xml:lang="zh-CN"><%= t("profile.invoice_date") %></span></dt>
-                    <dd><%= @order.buy_date.strftime("%Y-%m-%d") %></dd>
+                    <dd><%= current_user.invoice_date %></dd>
                 </dl>
                 <dl class="clearfix">
                   <dt><%= t("profile.due_date") %></dt>
-                    <dd><%= @order.deadline.strftime("%Y-%m-%d") %></dd>
+                    <dd><%= current_user.all_deadline %></dd>
                 </dl>
                 <div class="order_action">
-                  <a href="#">
+                  <%= link_to new_order_path do %>
                     <%= image_tag "#{I18n.locale}/btn_renew.gif", 
                                     :alt => 'Renew', 
                                     :width => '144', 
                                     :height => '44',
                                     :id => "firstchild" %>
-                  </a>
-                  <a href="#">
-                    <%= image_tag "#{I18n.locale}/btn_payment.gif", 
-                      :alt => 'Renew', 
-                      :width => '144', 
-                      :height => '44' %>
-                  </a>
+                  <% end %>
                 </div>
             </div>
             <div class="bot">

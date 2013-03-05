@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
     o =  [('a'..'z'),('A'..'Z')].map{|i| i.to_a}.flatten
     (0...50).map{ o[rand(o.length)] }.join
   end
-
+  #同时生成邀请码
   def self.init_password
     o =  [('a'..'z'),('A'..'Z')].map{|i| i.to_a}.flatten
     (0...6).map{ o[rand(o.length)] }.join
@@ -62,5 +62,21 @@ class User < ActiveRecord::Base
 
   def nick_name
     is_guest? ? 'guest' : email
+  end
+
+  def all_remaining_days
+    days = 0
+    orders.each{|o| days += o.remaining_days}
+    days
+  end
+  
+  #总截止日期
+  def all_deadline
+    (Time.now + all_remaining_days.send('days')).strftime("%Y-%m-%d")
+  end
+  
+  #拿出最后一个订单的购买时间
+  def invoice_date
+    orders.order('created_at desc').first.buy_date.strftime("%Y-%m-%d")
   end
 end
