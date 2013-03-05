@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     invitation_code = Refinery::InvicationCodes::InvicationCode.find_by_code(params[:invitation_code])
     if invitation_code && invitation_code.within_deadline?
       session[:user_id] = User.find_by_name('guest').id
-      notice_stickie t("message.login_success")
+      # notice_stickie t("message.login_success")
       redirect_to root_url
     else
       warning_stickie t("message.un_invitation_code")
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:user][:email])
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
-      notice_stickie t("message.login_success")
+      # notice_stickie t("message.login_success")
       redirect_to root_url
     else
       error_stickie t("message.email_or_password_disabled")
@@ -35,7 +35,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    notice_stickie t("message.logout")
+    # notice_stickie t("message.logout")
     redirect_to login_path
   end
 
