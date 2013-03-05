@@ -57,7 +57,7 @@ class OrdersController < ApplicationController
 
     order = Order.find_by_so(params['out_trade_no'])
     order.update_attribute(:status, 'success')
-    
+
     find_and_login_user(order)
 
   end
@@ -72,11 +72,13 @@ class OrdersController < ApplicationController
 
   # paypal
   def confirm
-    username = "test2_1356319825_biz_api1.sidways.com"
-    password = "1356319845"
-    signature = "An5ns1Kso7MWUdW4ErQKJJJ4qi4-AocZDCOBqHkdTuMA3quFqSyX5ilB";
+    config = PaymentConfig::Paypal.new
 
-    paypal = Paypal.new(username, password, signature, :sandbox)
+    paypal = Paypal.new(config.username,
+                        config.password,
+                        config.signature,
+                        config.env)
+
 
     payer_id = params['PayerID']
     token = params['token']
@@ -124,12 +126,12 @@ class OrdersController < ApplicationController
 
   def find_and_login_user(order)
     if order.user.is_guest?
-      user = User.build_or_find_common_user(order.email) 
+      user = User.build_or_find_common_user(order.email)
       order.update_attribute(:user_id, user.id)
       UserMailer.new_user(user).deliver
       session[:user_id] = user.id
     end
-    UserMailer.order(order, order.user).deliver 
+    UserMailer.order(order, order.user).deliver
     redirect_to user_path(order.user)
   end
 
@@ -138,26 +140,32 @@ class OrdersController < ApplicationController
   end
 
   def alipay(order)
-    redirect_to ChinaPay::Alipay::Merchant.new('2088801240842311', 'yf46ds05nkrwdggnmftchrk83tpaza5j')
-                .create_order(order.so, order.name, 'leap4net vpn')
-                .seller_email('shannon.mao@sidways.com').total_fee(0.01)
+    config = PaymentConfig::Alipay.new
+    price = if Rails.env == 'development'
+              0.01
+            else
+              order.pay_price
+            end
+
+    redirect_to ChinaPay::Alipay::Merchant.new(config.partner, config.key)
+                .create_order(order.so, order.name, config.subject)
+                .seller_email(config.seller_email).total_fee(price)
                 .direct_pay
-                .after_payment_redirect_url('http://leap4.local/orders/success')
-                .notification_callback_url('http://leap4.local/orders/notify')
+                .after_payment_redirect_url(config.notify_url)
+                .notification_callback_url(config.return_url)
                 .gateway_api_url
   end
 
   def paypal(order)
 
-    username = "test2_1356319825_biz_api1.sidways.com"
-    password = "1356319845"
-    signature = "An5ns1Kso7MWUdW4ErQKJJJ4qi4-AocZDCOBqHkdTuMA3quFqSyX5ilB"
-    return_url = "http://localhost:3000/orders/confirm"
-    cancel_url =  "http://localhost:3000/orders/cancle"
+    config = PaymentConfig::Paypal.new
+
+    paypal = Paypal.new(config.username,
+                        config.password,
+                        config.signature,
+                        config.env)
 
     products = {:price => order.pay_price , :name => order.name , :qty => 1}
-
-    paypal = Paypal.new(username, password, signature, :sandbox)
 
     other_params = {
         "NOSHIPPING" => 0,
@@ -170,7 +178,12 @@ class OrdersController < ApplicationController
         "PAYMENTREQUEST_0_AMT"=> order.pay_price,
         "L_PAYMENTREQUEST_0_ITEMCATEGORY0"=>"Digital",
     }
-    reponse = paypal.set_express_checkout(return_url, cancel_url, products, currency="USD", other_params)
+
+    reponse = paypal.set_express_checkout(config.return_url,
+                                          config.cancel_url,
+                                          products,
+                                          currency="USD",
+                                          other_params)
 
     if reponse['ACK'] == 'Success'
       PaypalLog.create(
@@ -182,9 +195,9 @@ class OrdersController < ApplicationController
           :order_num  => order.so,
           :desc  => reponse.to_s # eval reponse.to_s can revert
       )
-      redirect_to "https://www.sandbox.paypal.com/incontext?token=#{reponse['TOKEN']}"
-      # production
-      #redirect_to "https://www.paypal.com/incontext?token=#{reponse['TOKEN']}"
+
+      redirect_to config.redirect_url + reponse['TOKEN']
+
     else
       PaypalLog.create(
           :order_num  => order.so,
@@ -193,41 +206,8 @@ class OrdersController < ApplicationController
       redirect_to new_order_path, :alert => "支付异常， 请联系管理员"
     end
 
-    ## if reponse['ACK'] == 'Success'
 
-    ## Failed
-    #{"TIMESTAMP"=>"2013-02-27T09:12:57Z",
-    # "CORRELATIONID"=>"bae4f7e947655",
-    # "ack"=>"Failure",
-    # "version"=>"74.0",
-    # "build"=>"5331358",
-    # "l_errorcode0"=>"10609",
-    # "l_shortmessage0"=>"Invalid transactionID.",
-    # "l_longmessage0"=>"Transaction id is invalid.",
-    # "l_severitycode0"=>"Error"}
-
-    ## Success
-    #{"TOKEN"=>"EC-31J741543X637323Y",
-    # "TIMESTAMP"=>"2013-02-27T09:20:10Z",
-    # "CORRELATIONID"=>"353b5b7c824f",
-    # "ACK"=>"Success",
-    # "VERSION"=>"74.0",
-    # "BUILD"=>"5331358"}
-
-    # test
-    #redirect_to "https://www.sandbox.paypal.com/incontext?token=#{reponse['TOKEN']}"
-
-    # production
-    #redirect_to "https://www.paypal.com/incontext?token=#{reponse['TOKEN']}"
-    ## 用户付款完成后会返回到return url， 通过这个url 可以得到:PayerID 和 token，
-    ## 这个return url  要做一个do_express_checkout_payment
-
-
-    #paypal.do_get_express_checkout_details(reponse['TOKEN'])
-    #paypal.do_express_checkout_payment(reponse['TOKEN'],'Sale', "payer_id", 0.01)
   end
-
-
 
   def get_user
     @user ||= current_user
