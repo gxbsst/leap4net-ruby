@@ -115,9 +115,9 @@ class OrdersController < ApplicationController
 
   def paypal(order)
 
-    username = "test2_1356319825_biz_api1.sidways.com";
-    password = "1356319845";
-    signature = "An5ns1Kso7MWUdW4ErQKJJJ4qi4-AocZDCOBqHkdTuMA3quFqSyX5ilB";
+    username = "test2_1356319825_biz_api1.sidways.com"
+    password = "1356319845"
+    signature = "An5ns1Kso7MWUdW4ErQKJJJ4qi4-AocZDCOBqHkdTuMA3quFqSyX5ilB"
     return_url = "http://localhost:3000/orders/confirm"
     cancel_url =  "http://localhost:3000/orders/cancle"
 

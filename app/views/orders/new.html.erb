@@ -33,7 +33,7 @@
               <div class="payment">
                 <p><%= t("order.choose_payment") %></p>
                 <p>
-                  <label>
+                  <label id="order_billing_method_paypal_label">
                     <% if params[:locale] == 'en' %>
                         <%= f.radio_button :billing_method, "paypal", :checked =>  true %>
                     <% else %>
@@ -41,7 +41,7 @@
                     <% end %>
                     <%= image_tag("#{I18n.locale}/paypal.gif", :width => 51, :height => 32, :alt => 'Paypal') %>
                   </label>
-                  <label>
+                  <label id="order_billing_method_alipay_label">
                     <% if params[:locale] == 'zh' %>
                         <%= f.radio_button :billing_method, "alipay", :checked => true %>
                     <% else %>
@@ -75,5 +75,15 @@
         $("#submit").click(function(){
             $("#new_order").submit();
         });
+
+        $("#order_billing_method_paypal").click(function(){
+            window.location = "/orders/new?locale=en"
+        });
+
+        $("#order_billing_method_alipay").click(function(){
+            window.location = "/orders/new?locale=zh"
+        });
     });
+
+
 </script>

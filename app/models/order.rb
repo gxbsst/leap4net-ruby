@@ -39,7 +39,7 @@ class Order < ActiveRecord::Base
 
     return price unless SALE_OFF_PRICE.include? price.to_f  # 只有1年的才会打折
 
-    if self.saleoff_code
+    if self.saleoff_code.present?
       saleoff_code_item = Refinery::SaleoffCodes::SaleoffCode.find_by_code(self.saleoff_code)
       number_with_precision(price * saleoff_code_item.percent, :precision => 2).to_f if saleoff_code_item && saleoff_code_item.available?
     else
