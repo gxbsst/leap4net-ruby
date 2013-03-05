@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     unless current_user
-      error_stickie t("message.unable_access")
+      #error_stickie t("message.unable_access")
       redirect_to login_path
     end
   end
