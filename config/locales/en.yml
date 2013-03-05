@@ -71,7 +71,7 @@ en:
   forgot_password:
     email_address: Email_Address
     info: 'To reset your password, enter the username you use to sign in to leap4net, the username is an email address.'
-    mailing_success: 'Mailing, please check.'
+    mailing_success: 'We’ve sent your password to your email, Please check your spam folder if the email doesn’t appear within a few minutes.'
     no_user: "Users without this mailbox!"
     write_email: "Please fill in the e-mail address."
   change_password:

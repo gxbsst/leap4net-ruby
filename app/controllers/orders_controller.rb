@@ -63,11 +63,11 @@ class OrdersController < ApplicationController
   end
 
   def notify
-
+    redirect_to new_order_path
   end
 
   def cancel
-
+    redirect_to new_order_path
   end
 
   # paypal

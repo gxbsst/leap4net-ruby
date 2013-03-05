@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
       # notice_stickie t("message.login_success")
-      redirect_to root_url
+      redirect_to new_order_path
     else
       error_stickie t("message.email_or_password_disabled")
       render :new
