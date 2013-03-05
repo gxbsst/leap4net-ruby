@@ -9,12 +9,12 @@ class Order < ActiveRecord::Base
 
   attr_accessible :buy_date, :deadline, :pay_price, :status, :leap_type, :user_id, :so, :name, :qty, :description,
                   :shipping_rate, :tax_rate, :original_price, :saleoff_code, :billing_method, :email
-
+  attr_accessor :is_old_order
   belongs_to :user
 
   before_save :set_default_values
 
-  before_create :set_pay_price, :set_date
+  before_create :set_pay_price, :set_date, :unless => "is_old_order"
 
   def set_date
     self.buy_date = Time.now
