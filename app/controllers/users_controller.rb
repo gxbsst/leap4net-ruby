@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   def reset_password
     @user.set_password params[:password]
     if @user.save
+      UserMailer.forgot_password(@user).deliver
       notice_stickie t("message.modify_password_success")
       redirect_to user_path(@user)
     else
