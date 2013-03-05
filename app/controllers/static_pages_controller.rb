@@ -14,6 +14,7 @@ class StaticPagesController < ApplicationController
   end
 
   def index
+    @root_path = true
   end
 
   def contactus
