@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, :presence => true, :on => :create
   validates :user_type, :presence => true
-  validates :invitation_code, :deadline, :presence => true, :if => "user_type == 'Guest'"
   before_validation :init_password
 
   has_many :orders
