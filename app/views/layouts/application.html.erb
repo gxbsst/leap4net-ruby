@@ -33,7 +33,7 @@
       <p class="mb10">
         <%= link_to t("navigation.index"), root_url %> | <%= link_to t("navigation.vpn"), why_vpn_static_pages_url %> | <%= link_to t("navigation.faq"), faq_static_pages_path %> | <%= link_to t("navigation.set_up"), howto_static_pages_path %> | <%= link_to t("navigation.order"), new_order_path %> | <%= link_to t("navigation.contact"), contactus_static_pages_path %>
       </p>
-      <p>Copyright © 2009 - 2012 Sidways InfoTech. All rights reserved.</p>
+      <p>Copyright © 2009 - <%= Time.now.strftime('%Y')%> Sidways InfoTech. All rights reserved.</p>
     </div>
   </div>
 </div>
