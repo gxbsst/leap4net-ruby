@@ -23,12 +23,24 @@ class User < ActiveRecord::Base
     (0...50).map{ o[rand(o.length)] }.join
   end
 
+  def self.init_password
+    o =  [('a'..'z'),('A'..'Z')].map{|i| i.to_a}.flatten
+    (0...6).map{ o[rand(o.length)] }.join
+  end
+
   def build_guest_user
-    u = User.new(:builder_id => id)
-    u.invitation_code = init_invitation_code
-    u.deadline = Time.now + 1.month
-    u.save
-    u
+    user = User.new(:builder_id => id)
+    user.invitation_code = init_invitation_code
+    user.deadline = Time.now + 1.month
+    user.save
+    user
+  end
+
+  def self.build_or_find_common_user(email)
+    user = User.where(:email => email).first_or_initialize(:user_type => 'Common')
+    user.set_password(User.init_password) if user.new_record?
+    user.save
+    user
   end
   
   #guest 用户暂时使用默认密码。

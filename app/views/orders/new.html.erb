@@ -21,7 +21,7 @@
             <div class="order_info">
               <div class="email">
                 <p><%=raw t("order.email_address") %></p>
-                <p><input name="" type="text" style="width:300px;"/></p>
+                <p><%= f.text_field :email, :style => "width:300px;" %></p>
                 <% if current_user.is_guest? %>
                 <p>
                   Enter your sale-off code:
