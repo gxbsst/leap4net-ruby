@@ -9,12 +9,24 @@ class OrdersController < ApplicationController
   end
 
   def create
-    order = Order.new(params[:order])
-    order.so = SecureRandom.hex
-    order.user_id = @user.id
+    @order = Order.new(params[:order])
+    @order.so = SecureRandom.hex
+    @order.user_id = @user.id
+    @order.email = @user.email unless @user.is_guest?
 
-    if order.save
-      pay(order)
+    if @user.is_guest?
+      #error_stickie t("message.email_existed") if User.find_by_email(order.email)
+      if User.find_by_email(@order.email)
+        render :new
+        return
+      end
+    end
+
+    if @order.save
+      pay(@order)
+    else
+      #error_stickie t("message.validate_email")
+      render :new
     end
   end
 
@@ -47,12 +59,6 @@ class OrdersController < ApplicationController
     order.update_attribute(:status, 'success')
     
     find_and_login_user(order)
-    # TODO:
-    # 如果是guest， 要创建一个用户, 然后更新order的user_id,
-    # 创建成功， 发送email给用户
-    # 用创建的用户登录
-
-    # redirect to 我的帐户
 
   end
 
@@ -91,6 +97,22 @@ class OrdersController < ApplicationController
       redirect_to new_order_path, :alert => "支付异常， 请联系管理员"
     end
 
+  end
+
+  def discount
+    order = Order.new(params[:order])
+    order.set_pay_price
+    order.valid?
+    if order.email.present?
+      error = unless order.errors[:email].blank?
+                order.errors[:email].first
+              else
+                t("message.email_existed") if User.find_by_email(order.email)
+              end
+    else
+      error =  t("message.validate_email")
+    end
+    render :json => {:price => t("message.discounted_prices") + order.pay_price.to_s, :error => error }, :status => 200
   end
 
   protected

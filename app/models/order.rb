@@ -10,6 +10,9 @@ class Order < ActiveRecord::Base
   attr_accessible :buy_date, :deadline, :pay_price, :status, :leap_type, :user_id, :so, :name, :qty, :description,
                   :shipping_rate, :tax_rate, :original_price, :saleoff_code, :billing_method, :email
 
+  validates :email, :presence => true, :email_format => true
+
+
   belongs_to :user
 
   before_save :set_default_values

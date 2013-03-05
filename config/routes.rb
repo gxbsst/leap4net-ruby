@@ -44,6 +44,7 @@ Leap4Net::Application.routes.draw do
       get :notify
       get :cancel
       get :confirm
+      post :discount
     end
   end
 

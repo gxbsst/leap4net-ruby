@@ -37,14 +37,14 @@ ActiveRecord::Schema.define(:version => 20130304090523) do
   end
 
   create_table "orders", :force => true do |t|
-    t.string   "leap_type",      :limit => 0,                                :null => false
+    t.string   "leap_type",      :limit => 0, :null => false
     t.string   "status",         :limit => 0
-    t.decimal  "pay_price",                   :precision => 10, :scale => 0
+    t.float    "pay_price"
     t.datetime "buy_date"
     t.datetime "deadline"
     t.integer  "user_id"
-    t.datetime "created_at",                                                 :null => false
-    t.datetime "updated_at",                                                 :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.string   "so"
     t.string   "name"
     t.integer  "qty"

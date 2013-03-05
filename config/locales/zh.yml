@@ -43,6 +43,9 @@ zh:
     payment_info: " *一旦您点击&quot;立即定购&quot;按钮并且完成了支付.<br /> 您将收到一份包含您用户名和密码的邮件. "
     alt_order: '立刻下单'
   message:
+    validate_email: '请输入email'
+    email_existed: '该用户已经存在'
+    discounted_prices: '您的价格:'
     login_success: '登录成功。'
     un_invitation_code: "无效邀请码或者邀请码已过期！"
     email_or_password_disabled: '邮箱或密码错误！'

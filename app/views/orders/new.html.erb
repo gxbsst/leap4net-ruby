@@ -21,13 +21,17 @@
             <div class="order_info">
               <div class="email">
                 <p><%=raw t("order.email_address") %></p>
-                <p><%= f.text_field :email, :style => "width:300px;" %></p>
                 <% if current_user.is_guest? %>
-                <p>
-                  Enter your sale-off code:
-                  <!--<input id="sale" name="sale" type="text" style="width: 128px;" onblur="discountService()"/>-->
-                  <%= f.text_field :saleoff_code, :style => "width: 128px" %>
-                </p>
+                    <p><%= f.text_field :email, :style => "width:300px;" %></p>
+                <% else %>
+                    <p><%= f.text_field :email, :value =>current_user.email, :disabled => true, :style => "width:300px;" %></p>
+                <% end %>
+                <% if current_user.is_guest? %>
+                    <p>
+                      Enter your sale-off code:
+                      <!--<input id="sale" name="sale" type="text" style="width: 128px;" onblur="discountService()"/>-->
+                      <%= f.text_field :saleoff_code, :style => "width: 128px" %>
+                    </p>
                 <% end %>
               </div>
               <div class="payment">
@@ -73,7 +77,37 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $("#submit").click(function(){
+
+            <% if current_user.is_guest? %>
+            $.ajax({
+                url: "/orders/discount?locale=<%= params[:locale] %>",
+                type: "POST",
+                data:$('#new_order').serialize(),
+                success: function(data){
+                    if(data.error)
+                    {
+                        alert(data.error);
+//                        return false;
+                    }else{
+                        alert(data.price);
+                    }
+                    $("#new_order").submit();
+                }
+            });
+
+            <% else %>
             $("#new_order").submit();
+            <% end %>
+//            $.ajax({
+//                type: 'POST',
+//                url: "/orders/discount",
+//                data:$('#new_order').serialize(),
+//                error: function(){  },
+//                success: function(data){ alet(data) },
+//                complete: function (){   }
+//            });
+
+
         });
 
         $("#order_billing_method_paypal").click(function(){
