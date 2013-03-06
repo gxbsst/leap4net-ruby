@@ -5,7 +5,7 @@ body {font-family: Arial, Helvetica, sans-serif;font-size:14px;color:#fff;}
 html {background-color:#000;}
 img {border:none;}
 ul, li {margin:0;pdding:0;list-style:none;}
-input, textarea, select {font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#333333;l}
+input, textarea, select {font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#333333;}
 .clearfix:after {clear: both;content: ".";display: block;height: 0;visibility: hidden;}
 .clearfix {display: inline-block;}
 * html .clearfix {height: 1%;}
@@ -39,7 +39,7 @@ button.btn_enter {width:123px;height:43px;background:url(../en/btn_enter.gif) no
 #login_mainholder .logo {margin-bottom:40px;}
 .box_welcome, .box_login {float:left;width:463px;height:408px;}
 .box_welcome {background:url(../en/login_bg_wel.jpg) no-repeat left top;}
-.box_login {background:url(../en/login_bg_login.jpg) no-repeat left top;width:}
+.box_login {background:url(../en/login_bg_login.jpg) no-repeat left top;}
 .box_login th, .box_login td {padding:0 20px 15px 0;}
 .box_login th {font-size:16px;text-align:right;}
 .box_welcome .content {margin:140px 50px 0 100px;}
@@ -75,7 +75,7 @@ button.btn_enter {width:123px;height:43px;background:url(../en/btn_enter.gif) no
 
 /*-----------------index------------------*/
 .home .intro {background:url(../en/bg_index2.jpg) no-repeat right bottom;height:323px;}
-.home .intro .content {padding:50px 30px;0 0 20px;text-align:center;width:400px;font-size:20px;line-height:30px;}
+.home .intro .content {padding:50px 30px;text-align:center;width:400px;font-size:20px;line-height:30px;}
 .home .intro .content  h1 {font-size:35px;margin-bottom:30px;}
 .location {background-color:#124571;}
 .location .main {width:960px;margin:0 auto;padding:15px 0;}
