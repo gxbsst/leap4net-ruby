@@ -4,6 +4,14 @@ namespace :init_old_data do
   task :init_all_data => [:init_users, :init_orders] do
 
   end
+  
+  #将所有的订单变成成功订单。
+  task :change_to_success => :environment do
+    Order.all.each do |o|
+      o.update_attribute :status, 'success'
+      puts o.id
+    end
+  end
   desc '导入用户'
   task :init_users => :environment do
     puts "================= begin"
