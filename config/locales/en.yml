@@ -55,7 +55,7 @@ en:
   message:
     validate_email: 'Email Is Required'
     email_existed: 'Email Has Existed'
-    discounted_prices: 'Discounted prices:'
+    discounted_prices: 'Discounted prices: $'
     login_success: 'Successful user login.'
     un_invitation_code: "Invitation code is disabled or overdue!"
     email_or_password_disabled: 'Email or password is disabled!'

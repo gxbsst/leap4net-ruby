@@ -149,7 +149,7 @@ class OrdersController < ApplicationController
 
     redirect_to ChinaPay::Alipay::Merchant.new(config.partner, config.key)
                 .create_order(order.so, order.name, config.subject)
-                .seller_email(config.seller_email).total_fee(price)
+                .seller_email(config.seller_email).total_fee(format_price(price))
                 .direct_pay
                 .after_payment_redirect_url(config.notify_url)
                 .notification_callback_url(config.return_url)
@@ -165,17 +165,19 @@ class OrdersController < ApplicationController
                         config.signature,
                         config.env)
 
-    products = {:price => order.pay_price , :name => order.name , :qty => 1}
+    price =  format_price(order.pay_price)
+
+    products = {:price => price , :name => order.name , :qty => 1}
 
     other_params = {
         "NOSHIPPING" => 0,
         "L_PAYMENTREQUEST_0_NAME0" => order.name,
-        "L_PAYMENTREQUEST_0_AMT0"=>  order.pay_price,
+        "L_PAYMENTREQUEST_0_AMT0"=>  price,
         "L_PAYMENTREQUEST_0_QTY0" =>1,
-        "PAYMENTREQUEST_0_ITEMAMT"=> order.pay_price,
+        "PAYMENTREQUEST_0_ITEMAMT"=> price,
         "PAYMENTREQUEST_0_SHIPPINGAMT"=>"0.00",
         "PAYMENTREQUEST_0_TAXAMT"=>"0.00",
-        "PAYMENTREQUEST_0_AMT"=> order.pay_price,
+        "PAYMENTREQUEST_0_AMT"=> price,
         "L_PAYMENTREQUEST_0_ITEMCATEGORY0"=>"Digital",
     }
 
@@ -211,6 +213,10 @@ class OrdersController < ApplicationController
 
   def get_user
     @user ||= current_user
+  end
+
+  def format_price(price)
+    "%.2f" %  price
   end
 
 end
