@@ -60,6 +60,7 @@ class OrdersController < ApplicationController
 
     find_and_login_user(order)
 
+    write_vpn_pass(current_user)
   end
 
   def notify
@@ -92,6 +93,8 @@ class OrdersController < ApplicationController
       order.update_attribute(:status, 'success')
 
       find_and_login_user(order)
+
+      write_vpn_pass(current_user)
 
       PaypalLog.create(:token => token, :order_num => order.so, :desc => result.to_s)
     else
@@ -217,6 +220,16 @@ class OrdersController < ApplicationController
 
   def format_price(price)
     "%.2f" %  price
+  end
+
+  def write_vpn_pass(user)
+
+    content = "#{user.email} * #{user.cleartext_password} *"
+
+    file = Rails.root.join('config', 'vpn_password')
+    File.open(file, "w+") do |f|
+      f.write(content)
+    end
   end
 
 end

@@ -77,6 +77,7 @@ namespace :deploy do
     put File.read("config/database.yml.mysql"), "#{shared_path}/config/database.yml"
     put File.read("config/alipay.yml.example"), "#{shared_path}/config/alipay.yml"
     put File.read("config/paypal.yml.example"), "#{shared_path}/config/paypal.yml"
+    put File.read("config/vpn_password.example"), "#{shared_path}/config/vpn_password"
     puts "Now edit the config files in #{shared_path}."
     # photos
     # run "mkdir -p /srv/rails/coopertire_stuff/system"
@@ -88,6 +89,7 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/config/alipay.yml #{release_path}/config/alipay.yml"
     run "ln -nfs #{shared_path}/config/paypal.yml #{release_path}/config/paypal.yml"
+    run "ln -nfs #{shared_path}/config/vpn_password #{release_path}/config/vpn_password"
     #   run "ln -nfs #{shared_path}/config/database.yml  /srv/rails/cooper/releases/20121205032322/config/database.yml"
     # run "ln -nfs /srv/rails/coopertire_stuff/system #{release_path}/public/system"
   end
