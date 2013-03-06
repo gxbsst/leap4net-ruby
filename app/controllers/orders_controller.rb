@@ -117,7 +117,7 @@ class OrdersController < ApplicationController
     else
       error =  t("message.validate_email")
     end
-    render :json => {:price => t("message.discounted_prices") + order.pay_price.to_s, :error => error }, :status => 200
+    render :json => {:price => t("message.discounted_prices") + format_price(order.pay_price).to_s, :error => error }, :status => 200
   end
 
   protected
