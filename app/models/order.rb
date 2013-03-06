@@ -45,7 +45,7 @@ class Order < ActiveRecord::Base
   end
 
   def remaining_days
-    deadline > Time.now ? ((deadline - Time.now)/3600/24).round : 0
+    (deadline > Time.now) && status == 'success' ? ((deadline - Time.now)/3600/24).round : 0
   end
 
   def discout(price)
