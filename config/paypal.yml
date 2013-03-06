@@ -1,0 +1,18 @@
+development:
+    username: "test2_1356319825_biz_api1.sidways.com"
+    password: "1356319845"
+    signature: "An5ns1Kso7MWUdW4ErQKJJJ4qi4-AocZDCOBqHkdTuMA3quFqSyX5ilB"
+    return_url: "http://localhost:3000/orders/confirm"
+    cancel_url:  "http://localhost:3000/orders/cancel"
+    redirect_url: "https://www.sandbox.paypal.com/incontext?token="
+    env: "sandbox"
+
+production:
+    username: "shannon.mao_api1.sidways.com"
+    password: "GTTLV7EU3FKQL24R"
+    signature: "AgM87ksEY.nObXpbAeFgxhp17oRTAsk8QHXPYf2cSq3hYezW3SyNP0zP"
+    return_url: "http://leap4.net/orders/confirm"
+    cancel_url:  "http://leap4.net/orders/cancel"
+    redirect_url: "https://www.paypal.com/incontext?token="
+    env: "production"
+
