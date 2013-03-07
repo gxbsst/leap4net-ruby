@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     if invitation_code && invitation_code.within_deadline?
       session[:user_id] = User.find_by_name('guest').id
       # notice_stickie t("message.login_success")
-      redirect_to root_url
+      redirect_to new_order_path
     else
       warning_stickie t("message.un_invitation_code")
       render :new
