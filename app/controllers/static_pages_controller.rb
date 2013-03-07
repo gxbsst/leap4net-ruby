@@ -5,7 +5,7 @@ class StaticPagesController < ApplicationController
 
   def howto
     if params[:resource]
-      name = if I18n.locale == 'en'
+      name = if I18n.locale == :en
                "#{params[:resource]}_en"
              else
                params[:resource]
