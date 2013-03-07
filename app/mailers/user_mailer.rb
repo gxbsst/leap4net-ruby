@@ -18,4 +18,9 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(:to => user.email, :subject => "Leap4net,支付成功")
   end
+
+  def send_approaching_deadline_users(users)
+    @users = users
+    mail(:to => 'Weston Wei <weston.wei@sidways.com>', :subject => "vpn快过期用户信息。")
+  end
 end
