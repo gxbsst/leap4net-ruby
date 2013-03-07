@@ -24,7 +24,8 @@ zh:
     location: "您可以在这些国家使用我们的服务："
   setup_howto:
     manual: "Leap4.Net 配置手册"
-    download_manual: "请按您使用的操作系统下载配置手册。" 
+    download_manual: "请按您使用的操作系统下载配置手册。"
+    download: '下载'
   profile:
     change_password: '更改密码'
     product: '产品'

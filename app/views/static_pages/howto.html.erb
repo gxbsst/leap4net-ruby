@@ -8,19 +8,63 @@
     <h1 class="ht"><%= t('setup_howto.manual') %></h1>
     <h3><span id="result_box2"><%= t('setup_howto.download_manual') %></span></h3>
     <p>&nbsp;</p>
-    <p><a target="_blank" href="/static_pages/howto?resource=PPTP VPN for Mac OS<%= '_en' if params[:locale]=='en'  %>">Leap4.Net Manual for Mac OS</a></p>
+    <p>
+      <a target="_blank" href="/static_pages/howto?resource=PPTP VPN for Mac OS">
+        Leap4.Net Manual for Mac OS
+      </a>
+      &nbsp;&nbsp;
+      <%= link_to t("setup_howto.download"), howto_path(:a => 'd', :locale => I18n.locale, :resource => "PPTP VPN for Mac OS") %>
+    </p>
     <p>&nbsp;</p>
-    <p><a target="_blank" href="/static_pages/howto?resource=PPTP VPN for Windows 7<%= '_en' if params[:locale]=='en'  %>">Leap4.Net Manual for Windows 7</a> </p>
+    <p>
+      <a target="_blank" href="/static_pages/howto?resource=PPTP VPN for Windows 7">
+        Leap4.Net Manual for Windows 7
+      </a>
+      &nbsp;&nbsp;
+      <%= link_to t("setup_howto.download"), howto_path(:a => 'd', :locale => I18n.locale, :resource => "PPTP VPN for Windows 7") %>
+    </p>
     <p>&nbsp;</p>
-    <p><a target="_blank" href="/static_pages/howto?resource=PPTP VPN for Windows XP<%= '_en' if params[:locale]=='en'  %>">Leap4.Net Manual for Windows XP</a></p>
+    <p>
+      <a target="_blank" href="/static_pages/howto?resource=PPTP VPN for Windows XP">
+        Leap4.Net Manual for Windows XP
+      </a>
+      &nbsp;&nbsp;
+      <%= link_to t("setup_howto.download"), howto_path(:a => 'd', :locale => I18n.locale, :resource => "PPTP VPN for Windows XP") %>
+
+    </p>
     <p>&nbsp;</p>
-    <p><a target="_blank" href="/static_pages/howto?resource=PPTP VPN for iPad<%= '_en' if params[:locale]=='en'  %>">Leap4.Net Manual for iPad</a></p>
+    <p>
+      <a target="_blank" href="/static_pages/howto?resource=PPTP VPN for iPad">
+        Leap4.Net Manual for iPad
+      </a>
+      &nbsp;&nbsp;
+      <%= link_to t("setup_howto.download"), howto_path(:a => 'd' ,:locale => I18n.locale, :resource => "PPTP VPN for iPad") %>
+    </p>
     <p>&nbsp;</p>
-    <p><a target="_blank" href="/static_pages/howto?resource=PPTP VPN for iPhone<%= '_en' if params[:locale]=='en'  %>">Leap4.Net Manual for iPhone</a></p>
+    <p>
+      <a target="_blank" href="/static_pages/howto?resource=PPTP VPN for iPhone">
+        Leap4.Net Manual for iPhone
+      </a>
+      &nbsp;&nbsp;
+      <%= link_to t("setup_howto.download"), howto_path(:a => 'd',:locale => I18n.locale, :resource => "PPTP VPN for iPhone") %>
+
+    </p>
     <p>&nbsp;</p>
-    <p><a target="_blank" href="/static_pages/howto?resource=PPTP VPN for Android<%= '_en' if params[:locale]=='en'  %>">Leap4.Net Manual for Android</a></p>
+    <p>
+      <a target="_blank" href="/static_pages/howto?resource=PPTP VPN for Android">
+        Leap4.Net Manual for Android
+      </a>
+      &nbsp;&nbsp;
+      <%= link_to t("setup_howto.download"), howto_path(:a => 'd',:locale => I18n.locale, :resource => "PPTP VPN for Android") %>
+    </p>
     <p>&nbsp;</p>
-    <p><a target="_blank" href="/static_pages/howto?resource=L2TP VPN for iPhone<%= '_en' if params[:locale]=='en'  %>">Leap4.Net Manual for iPhone with L2TP</a> </p>
+    <p>
+      <a target="_blank" href="/static_pages/howto?resource=L2TP VPN for iPhone">
+        Leap4.Net Manual for iPhone with L2TP
+      </a>
+      &nbsp;&nbsp;
+      <%= link_to t("setup_howto.download"), howto_path(:a => 'd', :locale => I18n.locale, :resource => "L2TP VPN for iPhone") %>
+    </p>
 
     <p>&nbsp;</p>
     <p>&nbsp;</p>

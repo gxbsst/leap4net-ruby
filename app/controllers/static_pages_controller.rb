@@ -5,8 +5,18 @@ class StaticPagesController < ApplicationController
 
   def howto
     if params[:resource]
-      pdf_filename = File.join(Rails.root, "pdf/howto_pdf/#{params[:resource]}.pdf")
-      send_file(pdf_filename, :filename => "#{params[:resource]}", :type => "application/pdf", :disposition => 'inline')
+      name = if I18n.locale == 'en'
+               "#{params[:resource]}_en"
+             else
+               params[:resource]
+             end
+      pdf_filename = File.join(Rails.root, "pdf/howto_pdf/#{name}.pdf")
+      if params[:a] == 'd'
+        send_file(pdf_filename, :filename => "#{name}.pdf", :type => "application/pdf")
+      else
+        send_file(pdf_filename, :filename => "#{name}.pdf", :type => "application/pdf", :disposition => 'inline')
+      end
+
     end
   end
 

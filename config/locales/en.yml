@@ -30,6 +30,7 @@ en:
   setup_howto:
     manual: 'Leap4.Net Manual'
     download_manual: 'Please select your operating system and connection method in below.'
+    download: 'Download'
   profile:
     change_password: 'Change Password'
     product: 'Products'
