@@ -64,3 +64,4 @@ gem "ruby-paypal", :git => "git://github.com/Reprazent/ruby-paypal.git"
 
 gem 'refinerycms-invication_codes', :path => 'vendor/extensions'
 gem 'refinerycms-saleoff_codes', :path => 'vendor/extensions'
+gem 'whenever', :require => false

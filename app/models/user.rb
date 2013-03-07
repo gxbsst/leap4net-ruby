@@ -73,9 +73,14 @@ class User < ActiveRecord::Base
   def all_deadline
     (Time.now + all_remaining_days.send('days')).strftime("%Y-%m-%d")
   end
+
+  #是否快要到期
+  def close_to_deadline?
+    all_remaining_days < 2 && all_remaining_days > 0
+  end
   
   #拿出最后一个订单的购买时间
   def invoice_date
-    orders.order('created_at desc').first.buy_date.strftime("%Y-%m-%d")
+    orders.order('created_at desc').first.buy_date.strftime("%Y-%m-%d") if orders.present?
   end
 end
