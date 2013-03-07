@@ -60,7 +60,7 @@ class OrdersController < ApplicationController
 
     find_and_login_user(order)
 
-    write_vpn_pass(current_user)
+    #write_vpn_pass(current_user)
   end
 
   def notify
@@ -94,7 +94,7 @@ class OrdersController < ApplicationController
 
       find_and_login_user(order)
 
-      write_vpn_pass(current_user)
+      #write_vpn_pass(current_user)
 
       PaypalLog.create(:token => token, :order_num => order.so, :desc => result.to_s)
     else
@@ -133,6 +133,7 @@ class OrdersController < ApplicationController
       order.update_attribute(:user_id, user.id)
       UserMailer.new_user(user).deliver
       session[:user_id] = user.id
+      write_vpn_pass(user)
     end
     UserMailer.order(order, order.user).deliver
     redirect_to user_path(order.user)
@@ -173,7 +174,8 @@ class OrdersController < ApplicationController
     products = {:price => price , :name => order.name , :qty => 1}
 
     other_params = {
-        "NOSHIPPING" => 0,
+        "REQCONFIRMSHIPPING" => 0,
+        "NOSHIPPING" => 1,
         "L_PAYMENTREQUEST_0_NAME0" => order.name,
         "L_PAYMENTREQUEST_0_AMT0"=>  price,
         "L_PAYMENTREQUEST_0_QTY0" =>1,
@@ -201,7 +203,14 @@ class OrdersController < ApplicationController
           :desc  => reponse.to_s # eval reponse.to_s can revert
       )
 
-      redirect_to config.redirect_url + reponse['TOKEN']
+      @url = config.redirect_url + reponse['TOKEN']
+      @token = reponse['TOKEN']
+      @order = order
+      render :new
+      #respond_to do |format|
+      #  format.js
+      #end
+      #redirect_to config.redirect_url + reponse['TOKEN']
 
     else
       PaypalLog.create(
@@ -227,8 +236,10 @@ class OrdersController < ApplicationController
     content = "#{user.email} * #{user.cleartext_password} *"
 
     file = Rails.root.join('config', 'vpn_password')
-    File.open(file, "w+") do |f|
-      f.write(content)
+    File.open(file, "a+") do |f|
+      #f.write(content)
+      #f << content
+      f.puts "#{content}\n"
     end
   end
 

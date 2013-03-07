@@ -1,0 +1,5 @@
+<%= form_tag 'https://www.sandbox.paypal.com/cgi-bin/webscr', :method => :post, :id => :pform do %>
+    <%=  hidden_field_tag(:cmd, value = '_express-checkout') %>
+    <%=  hidden_field_tag(:token, value = @token) %>
+    <%= submit_tag 'Subscribe Via PayPal', :id => :submit_subscription_request, :style => "display: none" %>
+<% end %>

@@ -1,3 +1,4 @@
+
 <div id="mainholder">
   <div id="header">
     <div class="main">
@@ -72,6 +73,12 @@
         <div class="clear"></div>
       </div>
   <% end %>
+
+  <div id="payform">
+    <% if @token  %>
+        <%= render "create.js"  %>
+    <% end %>
+  </div>
 </div>
 
 <script type="text/javascript">
@@ -121,3 +128,4 @@
 
 
 </script>
+

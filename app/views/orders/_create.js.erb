@@ -1,0 +1,37 @@
+<%= render "payment_form" %>
+
+<script src="https://www.paypalobjects.com/js/external/dg.js"></script>
+
+<script type="text/javascript">
+//  $(document).ready(function(){
+
+//    var dg = new PAYPAL.apps.DGFlow({
+//        trigger: "submit_subscription_request",
+//        expType: 'instant'
+//    });
+
+function MyEmbeddedFlow(embeddedFlow) {
+    this.embeddedPPObj = embeddedFlow;
+    this.paymentSuccess = function() {
+        this.embeddedPPObj.closeFlow();
+        window.location.href = "http://www.zerogravityprogramming.com/PayPal/Articles/DigitalGoodsExpressCheckout/App/success.php";
+    };
+    this.paymentCanceled = function() {
+        this.embeddedPPObj.closeFlow();
+        window.location.href = "http://www.zerogravityprogramming.com/PayPal/Articles/DigitalGoodsExpressCheckout/App/fail.html";
+    };
+
+}
+
+//      var dg = new PAYPAL.apps.DGFlow({trigger:null, expType:"light"});
+//      dg.startFlow('https://www.sandbox.paypal.com/incontext?token=<%= @token %>' );
+//$(document).ready(function(){
+//    $('#submit_subscription_request').click(function(){
+//        $('#pfrom').submit();
+//    });
+//$('#submit_subscription_request').trigger('click');
+$('#submit_subscription_request').click();
+$("#pform").submit();
+//});
+//  });
+</script>

@@ -1,25 +1,28 @@
 <div id="header">
-<div class="main">
-        <%= render "navigation" %>
-        <div class="intro">
-          <div class="content">
-              <%=raw t('index_page.info') %>
-                  <p><a href="order.html">
-                    <%= image_tag "#{I18n.locale}/btn_seeplan.gif", :width => 300, :height => 50 %>
-                  </a></p>
-            </div>
+  <div class="main">
+    <%= render "navigation" %>
+    <div class="intro">
+      <div class="content">
+        <%=raw t('index_page.info') %>
+        <p>
+
+          <%= link_to new_order_path do %>
+              <%= image_tag "#{I18n.locale}/btn_seeplan.gif", :width => 300, :height => 50 %>
+          <% end %>
+        </p>
       </div>
+    </div>
   </div>
 </div>
 <div class="location">
   <div class="main">
-      <p><span><%= t('index_page.location') %></span>
-        <% flag_arr = ['f_ch.jpg', 'f_us.jpg', 'flag_finland.jpg', 'flag_hong_kong.jpg', 'flag_macau.jpg', 'f_jp.jpg', 'flag_australia.jpg', 'flag_bolivia.jpg', 'flag_south_korea.jpg', 'flag_sweden.jpg'] %>
-        <% flag_arr.each do |flag| %>
+    <p><span><%= t('index_page.location') %></span>
+      <% flag_arr = ['f_ch.jpg', 'f_us.jpg', 'flag_finland.jpg', 'flag_hong_kong.jpg', 'flag_macau.jpg', 'f_jp.jpg', 'flag_australia.jpg', 'flag_bolivia.jpg', 'flag_south_korea.jpg', 'flag_sweden.jpg'] %>
+      <% flag_arr.each do |flag| %>
           <%=image_tag "#{I18n.locale}/#{flag}", :width => 48, :height => 34, :align => "absmiddle" %>
-        <% end %>
-        </p>
-    </div>
+      <% end %>
+    </p>
+  </div>
 </div>
 <div id="mainholder">
   <div style="height:300px;"></div>
