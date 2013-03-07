@@ -204,6 +204,11 @@ class OrdersController < ApplicationController
       )
 
       @url = config.redirect_url + reponse['TOKEN']
+      @payurl = if Rails.env == 'development'
+                  "https://www.sandbox.paypal.com/cgi-bin/webscr"
+                else
+                  "https://www.paypal.com/cgi-bin/webscr"
+                end
       @token = reponse['TOKEN']
       @order = order
       render :new
