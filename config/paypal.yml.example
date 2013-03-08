@@ -8,9 +8,9 @@ development:
     env: "sandbox"
 
 production:
-    username: "shannon.mao_api1.sidways.com"
-    password: "GTTLV7EU3FKQL24R"
-    signature: "AgM87ksEY.nObXpbAeFgxhp17oRTAsk8QHXPYf2cSq3hYezW3SyNP0zP"
+    username: "****"
+    password: "******"
+    signature: ".*****nObXpbAeFgxhp17oRTAsk8QHXPYf2cSq3hYezW3SyNP0zP"
     return_url: "http://leap4.net/orders/confirm"
     cancel_url:  "http://leap4.net/orders/cancel"
     redirect_url: "https://www.paypal.com/incontext?token="

@@ -4,9 +4,9 @@ development:
     service: "create_direct_pay_by_user"
     encoding: "UTF-8"
     payment_type: 1
-    seller_email: "shannon.mao@sidways.com"
-    partner: "2088801240842311"
-    key: "yf46ds05nkrwdggnmftchrk83tpaza5j"
+    seller_email: ""
+    partner: ""
+    key: "****"
     notify_url: "http://leap4.local/orders/success"
     return_url: "http://leap4.local/orders/notify"
 production:
@@ -15,8 +15,8 @@ production:
     service: "create_direct_pay_by_user"
     encoding: "UTF-8"
     payment_type: 1
-    seller_email: "shannon.mao@sidways.com"
-    partner: "2088801240842311"
-    key: "yf46ds05nkrwdggnmftchrk83tpaza5j"
+    seller_email: "****"
+    partner: "****"
+    key: "*****"
     notify_url: "http://leap4net.sidways.com/orders/success"
     return_url: "http://leap4net.sidways.com/orders/notify"
