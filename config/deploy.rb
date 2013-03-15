@@ -162,4 +162,13 @@ namespace :deploy do
   end
   after "deploy:finalize_update", "deploy:symlink_config"
 
+  task :update_crontab, :roles => :app do
+    run "cd #{deploy_to}/current && whenever --update-crontab #{application}"
+  end
+
+  desc "rake assets:precompile"
+  task "assets_precompile", :roles => :app do
+    run("cd #{deploy_to}/current && /usr/bin/env rake assets:precompile RAILS_ENV=production")
+  end
+
 end
