@@ -24,8 +24,13 @@ class UsersController < ApplicationController
   end
 
   def reset_password
+    @old_passowrd = @user.cleartext_password
     @user.set_password params[:password]
     if @user.save
+      # 删除旧密码
+      #@user.delete_line_text(@old_passowrd)
+      # 生成新密码
+      #@user.write_vpn_pass
       UserMailer.forgot_password(@user).deliver
       notice_stickie t("message.modify_password_success")
       redirect_to user_path(@user)

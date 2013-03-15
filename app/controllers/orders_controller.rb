@@ -133,7 +133,7 @@ class OrdersController < ApplicationController
       order.update_attribute(:user_id, user.id)
       UserMailer.new_user(user).deliver
       session[:user_id] = user.id
-      write_vpn_pass(user)
+      #user.write_vpn_pass
     end
     UserMailer.order(order, order.user).deliver
     redirect_to user_path(order.user)
@@ -236,16 +236,14 @@ class OrdersController < ApplicationController
     "%.2f" %  price
   end
 
-  def write_vpn_pass(user)
-
-    content = "#{user.email} * #{user.cleartext_password} *"
-
-    file = Rails.root.join('config', 'vpn_password')
-    File.open(file, "a+") do |f|
-      #f.write(content)
-      #f << content
-      f.puts "#{content}\n"
-    end
-  end
+  #def write_vpn_pass(user)
+  #  content = "#{user.email} * #{user.cleartext_password} *"
+  #  file = Rails.root.join('config', 'vpn_password')
+  #  File.open(file, "a+") do |f|
+  #    #f.write(content)
+  #    #f << content
+  #    f.puts "#{content}\n"
+  #  end
+  #end
 
 end

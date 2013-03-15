@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(:version => 20130305070618) do
   end
 
   create_table "orders", :force => true do |t|
-    t.string   "leap_type",      :limit => 0,                               :null => false
-    t.string   "status",         :limit => 0
+    t.string   "leap_type",      :limit => 5,                               :null => false
+    t.string   "status",         :limit => 7
     t.decimal  "pay_price",                   :precision => 8, :scale => 2
     t.datetime "buy_date"
     t.datetime "deadline"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20130305070618) do
     t.float    "tax_rate"
     t.float    "original_price"
     t.string   "saleoff_code"
-    t.string   "billing_method", :limit => 0
+    t.string   "billing_method", :limit => 6
     t.string   "email"
   end
 
@@ -229,7 +229,7 @@ ActiveRecord::Schema.define(:version => 20130305070618) do
 
   create_table "users", :force => true do |t|
     t.string   "name",               :limit => 11
-    t.string   "user_type",          :limit => 0,  :default => "Guest", :null => false
+    t.string   "user_type",          :limit => 8,  :default => "Guest", :null => false
     t.string   "password_digest"
     t.datetime "created_at",                                            :null => false
     t.datetime "updated_at",                                            :null => false
