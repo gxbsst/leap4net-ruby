@@ -16,3 +16,4 @@ rerun.txt
 pickle-email-*.html
 .idea/*
 config/vpn_password
+vpn_password

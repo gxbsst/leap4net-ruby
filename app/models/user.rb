@@ -97,7 +97,7 @@ class User < ActiveRecord::Base
   def delete_line_text
     require 'fileutils'
     require 'tempfile'
-    file = Rails.root.join("config", 'vpn_password').to_s
+    file = File.readlink(Rails.root.join("config", 'vpn_password').to_s)
     tmp = Tempfile.new("extract")
     open(file, 'r').each do |line|
       tmp << line unless line.chomp == "#{nick_name} * #{cleartext_password_was} *"
@@ -108,7 +108,7 @@ class User < ActiveRecord::Base
 
   # 写密码到vpn_password
   def write_vpn_pass
-    file = Rails.root.join('config', 'vpn_password')
+    file = File.readlink(Rails.root.join('config', 'vpn_password'))
     content = "#{nick_name} * #{cleartext_password} *"
     File.open(file, "a+") { |f| f.puts "#{content}\n" }
   end

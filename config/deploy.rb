@@ -153,10 +153,10 @@ namespace :deploy do
   after "deploy:setup", "deploy:setup_config"
 
   task :symlink_config, roles: :app do
-    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-    run "ln -nfs #{shared_path}/config/alipay.yml #{release_path}/config/alipay.yml"
-    run "ln -nfs #{shared_path}/config/paypal.yml #{release_path}/config/paypal.yml"
-    run "ln -nfs #{shared_path}/config/vpn_password #{release_path}/config/vpn_password"
+    run "ln -nfs #{shared_path}/config/database.yml #{current_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/config/alipay.yml #{current_path}/config/alipay.yml"
+    run "ln -nfs #{shared_path}/config/paypal.yml #{current_path}/config/paypal.yml"
+    run "ln -nfs #{shared_path}/config/vpn_password #{current_path}/config/vpn_password"
     #   run "ln -nfs #{shared_path}/config/database.yml  /srv/rails/cooper/releases/20121205032322/config/database.yml"
     # run "ln -nfs /srv/rails/coopertire_stuff/system #{release_path}/public/system"
   end
