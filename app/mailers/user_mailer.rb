@@ -5,18 +5,18 @@ class UserMailer < ActionMailer::Base
   #发送用户名和密码
   def forgot_password(user)
     @user = user
-    mail(:to => user.email, :subject => "Leap4net,请保存好您的密码")
+    mail(:to => user.email, :subject => I18n.t('email_forgot_password_subject'))
   end
 
   def new_user(user)
     @user = user
-    mail(:to => user.email, :subject => "Leap4net,请保存好您的密码")
+    mail(:to => user.email, :subject => I18n.t('email_forgot_password_subject'))
   end
 
   def order(order, user)
     @order = order
     @user = user
-    mail(:to => user.email, :subject => "Leap4net,支付成功")
+    mail(:to => user.email, :subject => I18n.t('email_pay_subject'))
   end
 
   def send_approaching_deadline_users(users)

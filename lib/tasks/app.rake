@@ -1,14 +1,15 @@
 # encoding: utf-8
 namespace :app do
-  # usage: Usage: rake notify_email:create_user email=name@example.com duration=day|year|month
+  # usage: Usage: rake app:create_user email=name@example.com duration=day|year|month locale=en|zh
   desc "创建VPN用户"
   task :create_user => :environment do
-
     unless ENV['email'].present? && ['duration'].present?
       puts "Usage: rake notify_email:create_user email=name@example.com duration=day|year|month"
     end
 
-    email, duration = ENV['email'], ENV['duration']
+    email, duration, locale = ENV['email'], ENV['duration'], ENV['locale'] || 'en'
+
+    I18n.locale = locale
 
     if duration == 'day'
       d = 1.day
@@ -40,7 +41,7 @@ namespace :app do
 
     puts "创建成功" if @order.save
 
-    #UserMailer.order(@order, @order.user).deliver
+    UserMailer.order(@order, @order.user).deliver
 
   end
 

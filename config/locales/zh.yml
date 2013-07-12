@@ -1,4 +1,6 @@
 zh:
+  email_forgot_password_subject: '您的帐户信息 - Leap4.net'
+  email_pay_subject: '支付成功 - Leap4.net'
   hello: '你好'
   Chinese: '中文'
   English: '英文'

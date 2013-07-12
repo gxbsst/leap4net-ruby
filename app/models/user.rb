@@ -97,6 +97,7 @@ class User < ActiveRecord::Base
   def delete_line_text
     require 'fileutils'
     require 'tempfile'
+    # binding.pry
     file = File.readlink(Rails.root.join("config", 'vpn_password').to_s)
     tmp = Tempfile.new("extract")
     open(file, 'r').each do |line|

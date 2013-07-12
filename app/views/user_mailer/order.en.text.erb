@@ -1,0 +1,19 @@
+Dear <%= @user.email %>,
+Thanks for choosing Leap4.Net the finest VPN service in China.
+
+You can use your account and password to log onto our website and start to surf the free web:
+Account: <%= @user.email %>
+Password: <%= @user.cleartext_password %>
+Valid from: <%= @order.buy_date.strftime("%Y-%m-%d") %>
+Valid until: <%= @order.deadline.strftime("%Y-%m-%d") %>
+
+To see your order status or modify your account information, go to the "My Account" page after you have signed-in.
+
+Need some help? Sign-in and go to "Setup HowTo(http://www.leap4.net/howto?locale=en)" page, and see the Q&A's; or, you can write an email to: Leap4Net@sidways.com and we will feedback as soon as possible.
+
+Thanks again for using Leap4.Net, and we await for your any inquiry or advice!
+Email: Leap4Net@sidways.com
+Web: http://www.Leap4.Net
+
+
+

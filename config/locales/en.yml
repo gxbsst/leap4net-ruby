@@ -2,6 +2,8 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  email_forgot_password_subject: 'Your Account Infomation - Leap4.net'
+  email_pay_subject: 'Successful Paid - Leap4.net'
   hello: "Hello world"
   Chinese: 'Chinese'
   English: 'English'
