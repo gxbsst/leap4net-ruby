@@ -41,7 +41,7 @@ namespace :app do
 
     puts "创建成功" if @order.save
 
-    UserMailer.order(@order, @order.user).deliver
+   # UserMailer.order(@order, @order.user).deliver
 
   end
 

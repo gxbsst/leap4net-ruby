@@ -117,7 +117,15 @@ class OrdersController < ApplicationController
     else
       error =  t("message.validate_email")
     end
-    render :json => {:price => t("message.discounted_prices") + format_price(order.pay_price).to_s, :error => error }, :status => 200
+
+    message = ''
+    if order.saleoff_code.present?
+      saleoff_code_item = Refinery::SaleoffCodes::SaleoffCode.find_by_code(order.saleoff_code)
+      if order.saleoff_code_expire?(saleoff_code_item)
+        message = 'SALE OFF CODE IS EXPIRED!'
+      end
+    end
+    render :json => {:price => message + t("message.discounted_prices") + format_price(order.pay_price).to_s, :error => error }
   end
 
   protected

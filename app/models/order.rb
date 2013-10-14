@@ -50,13 +50,19 @@ class Order < ActiveRecord::Base
 
   def discout(price)
 
-    return price unless SALE_OFF_PRICE.include? price.to_f  # 只有1年的才会打折
+    return price unless SALE_OFF_PRICE.include? price.to_f  # 只有1年的才会打折 
 
     if self.saleoff_code.present?
       saleoff_code_item = Refinery::SaleoffCodes::SaleoffCode.find_by_code(self.saleoff_code)
+      return price if saleoff_code_expire?(saleoff_code_item)
       number_with_precision(price * saleoff_code_item.percent, :precision => 2).to_f if saleoff_code_item && saleoff_code_item.available?
     else
       price
     end
+  end
+
+  # 打折码过期
+  def saleoff_code_expire?(saleoff_code_item)
+    saleoff_code_item.end_at.to_i < Time.now.to_i
   end
 end
