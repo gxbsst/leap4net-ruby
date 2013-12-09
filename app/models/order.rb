@@ -63,6 +63,8 @@ class Order < ActiveRecord::Base
 
   # 打折码过期
   def saleoff_code_expire?(saleoff_code_item)
-    saleoff_code_item.end_at.to_i < Time.now.to_i
+    if Time.now.to_i && saleoff_code_item
+      saleoff_code_item.end_at.to_i
+    end
   end
 end
